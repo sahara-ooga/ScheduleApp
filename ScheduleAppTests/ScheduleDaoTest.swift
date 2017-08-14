@@ -9,7 +9,7 @@
 import XCTest
 import FMDB
 
-@testable import Schedule
+@testable import ScheduleApp
 
 class ScheduleDaoTest: XCTestCase {
     let dao = ScheduleDao()
