@@ -77,10 +77,10 @@
 		1054FAA51F4138BF003672DE = {
 			isa = PBXGroup;
 			children = (
+				1054FAAF1F4138BF003672DE /* Products */,
 				1054FAB01F4138BF003672DE /* ScheduleApp */,
 				1054FAC51F4138BF003672DE /* ScheduleAppTests */,
 				1054FAD01F4138BF003672DE /* ScheduleAppUITests */,
-				1054FAAF1F4138BF003672DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +97,10 @@
 		1054FAB01F4138BF003672DE /* ScheduleApp */ = {
 			isa = PBXGroup;
 			children = (
-				1054FAB11F4138BF003672DE /* AppDelegate.swift */,
-				1054FAB31F4138BF003672DE /* ViewController.swift */,
-				1054FAB51F4138BF003672DE /* Main.storyboard */,
-				1054FAB81F4138BF003672DE /* Assets.xcassets */,
-				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
-				1054FABD1F4138BF003672DE /* Info.plist */,
+				1054FAE01F4138FC003672DE /* Controllers */,
+				1054FAE11F413917003672DE /* Models */,
+				1054FADF1F4138F0003672DE /* Others */,
+				1054FAE21F413927003672DE /* Views */,
 			);
 			path = ScheduleApp;
 			sourceTree = "<group>";
@@ -110,8 +108,8 @@
 		1054FAC51F4138BF003672DE /* ScheduleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1054FAC61F4138BF003672DE /* ScheduleAppTests.swift */,
 				1054FAC81F4138BF003672DE /* Info.plist */,
+				1054FAC61F4138BF003672DE /* ScheduleAppTests.swift */,
 			);
 			path = ScheduleAppTests;
 			sourceTree = "<group>";
@@ -119,10 +117,57 @@
 		1054FAD01F4138BF003672DE /* ScheduleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1054FAD11F4138BF003672DE /* ScheduleAppUITests.swift */,
 				1054FAD31F4138BF003672DE /* Info.plist */,
+				1054FAD11F4138BF003672DE /* ScheduleAppUITests.swift */,
 			);
 			path = ScheduleAppUITests;
+			sourceTree = "<group>";
+		};
+		1054FADF1F4138F0003672DE /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1054FAB11F4138BF003672DE /* AppDelegate.swift */,
+				1054FAB81F4138BF003672DE /* Assets.xcassets */,
+				1054FABD1F4138BF003672DE /* Info.plist */,
+			);
+			name = Others;
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1054FAE01F4138FC003672DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
+				1054FAB51F4138BF003672DE /* Main.storyboard */,
+				1054FAB31F4138BF003672DE /* ViewController.swift */,
+			);
+			name = Controllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1054FAE11F413917003672DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1054FAE31F413979003672DE /* DB */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1054FAE21F413927003672DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1054FAE31F413979003672DE /* DB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DB;
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +350,7 @@
 				1054FAB61F4138BF003672DE /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */ = {
@@ -313,6 +359,7 @@
 				1054FABB1F4138BF003672DE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -416,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KE8PEF6922;
-				INFOPLIST_FILE = ScheduleApp/Info.plist;
+				INFOPLIST_FILE = ScheduleApp/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sundaycarpenter.ScheduleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,7 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KE8PEF6922;
-				INFOPLIST_FILE = ScheduleApp/Info.plist;
+				INFOPLIST_FILE = ScheduleApp/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sundaycarpenter.ScheduleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
