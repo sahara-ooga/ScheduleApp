@@ -130,7 +130,6 @@
 				1054FAB81F4138BF003672DE /* Assets.xcassets */,
 				1054FABD1F4138BF003672DE /* Info.plist */,
 			);
-			name = Others;
 			path = Others;
 			sourceTree = "<group>";
 		};
@@ -141,7 +140,6 @@
 				1054FAB51F4138BF003672DE /* Main.storyboard */,
 				1054FAB31F4138BF003672DE /* ViewController.swift */,
 			);
-			name = Controllers;
 			path = Controllers;
 			sourceTree = "<group>";
 		};
@@ -150,7 +148,6 @@
 			children = (
 				1054FAE31F413979003672DE /* DB */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -158,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -166,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = DB;
 			path = DB;
 			sourceTree = "<group>";
 		};
@@ -464,6 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KE8PEF6922;
 				INFOPLIST_FILE = ScheduleApp/Others/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sundaycarpenter.ScheduleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,6 +473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KE8PEF6922;
 				INFOPLIST_FILE = ScheduleApp/Others/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sundaycarpenter.ScheduleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -561,6 +558,7 @@
 				1054FAD81F4138BF003672DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1054FAD91F4138BF003672DE /* Build configuration list for PBXNativeTarget "ScheduleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +567,7 @@
 				1054FADB1F4138BF003672DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1054FADC1F4138BF003672DE /* Build configuration list for PBXNativeTarget "ScheduleAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +576,7 @@
 				1054FADE1F4138BF003672DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
