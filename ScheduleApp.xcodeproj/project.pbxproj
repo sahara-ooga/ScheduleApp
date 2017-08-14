@@ -15,6 +15,7 @@
 		1054FAC71F4138BF003672DE /* ScheduleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAC61F4138BF003672DE /* ScheduleAppTests.swift */; };
 		1054FAD21F4138BF003672DE /* ScheduleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAD11F4138BF003672DE /* ScheduleAppUITests.swift */; };
 		1054FAED1F413F0D003672DE /* FMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAEC1F413F0D003672DE /* FMDBHelper.swift */; };
+		1054FAF01F413F7F003672DE /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAEF1F413F7F003672DE /* String+Path.swift */; };
 		562C8C1723E0881B01FB7A4D /* Pods_ScheduleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896C63CD2EF55B42B8F18335 /* Pods_ScheduleAppTests.framework */; };
 		5A1235613E6126A001E43E0F /* Pods_ScheduleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28135D4D7CE518A4492CD69 /* Pods_ScheduleApp.framework */; };
 		82E74ECECA716EB6EB0754F5 /* Pods_ScheduleAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A602958A81EF77CCAF8A0 /* Pods_ScheduleAppUITests.framework */; };
@@ -52,6 +53,7 @@
 		1054FAD11F4138BF003672DE /* ScheduleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppUITests.swift; sourceTree = "<group>"; };
 		1054FAD31F4138BF003672DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1054FAEC1F413F0D003672DE /* FMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBHelper.swift; sourceTree = "<group>"; };
+		1054FAEF1F413F7F003672DE /* String+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Path.swift"; sourceTree = "<group>"; };
 		2FEF57F6384448A8F72F13E1 /* Pods-ScheduleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleApp/Pods-ScheduleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		40A1475122B7064E01D12891 /* Pods-ScheduleAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleAppUITests/Pods-ScheduleAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		438B0B5C24734DBAAC2BE292 /* Pods-ScheduleAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleAppUITests/Pods-ScheduleAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		1054FAB01F4138BF003672DE /* ScheduleApp */ = {
 			isa = PBXGroup;
 			children = (
+				1054FAEE1F413F63003672DE /* Extensions */,
 				1054FAE01F4138FC003672DE /* Controllers */,
 				1054FAE11F413917003672DE /* Models */,
 				1054FADF1F4138F0003672DE /* Others */,
@@ -175,6 +178,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1054FAEE1F413F63003672DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1054FAEF1F413F7F003672DE /* String+Path.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		94DED84B7010E1EAA2C962C4 /* Frameworks */ = {
@@ -471,6 +482,7 @@
 				1054FAB41F4138BF003672DE /* ViewController.swift in Sources */,
 				1054FAED1F413F0D003672DE /* FMDBHelper.swift in Sources */,
 				1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */,
+				1054FAF01F413F7F003672DE /* String+Path.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
