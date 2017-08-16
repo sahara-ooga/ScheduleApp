@@ -2,13 +2,19 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - Nimble (7.0.1)
+  - Quick (1.1.0)
 
 DEPENDENCIES:
   - FMDB (= 2.6.2)
+  - Nimble
+  - Quick
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: 8a5797e4ffd42e91854dcdc2f497e55dd86fbf2a
+PODFILE CHECKSUM: ed102be745fdb9a5e9875ec94c87fd5f281d7ca9
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
