@@ -3,6 +3,7 @@ use_frameworks!
 
 def install_pods
   pod 'FMDB', '2.6.2'
+  pod 'Eureka'
 end
 
 def testing_pods
@@ -10,9 +11,9 @@ def testing_pods
     pod 'Nimble'
 end
 
- target 'ScheduleApp' do
-  # Pods for ScheduleApp
-  install_pods
+  target 'ScheduleApp' do
+    # Pods for ScheduleApp
+        install_pods
 
   target 'ScheduleAppTests' do
     inherit! :search_paths
@@ -24,8 +25,8 @@ end
   target 'ScheduleAppUITests' do
     inherit! :search_paths
     # Pods for testing
-      install_pods
-      testing_pods
+        install_pods
+        testing_pods
   end
 
 end
