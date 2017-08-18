@@ -25,6 +25,7 @@
 		82E74ECECA716EB6EB0754F5 /* Pods_ScheduleAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A602958A81EF77CCAF8A0 /* Pods_ScheduleAppUITests.framework */; };
 		E0436A861F4673C9001C8676 /* MonthViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0436A851F4673C9001C8676 /* MonthViewProvider.swift */; };
 		E0436A881F467A37001C8676 /* MonthViewProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0436A871F467A37001C8676 /* MonthViewProviderTest.swift */; };
+		E0436A8A1F4685AB001C8676 /* MonthViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0436A891F4685AB001C8676 /* MonthViewCellTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D37A602958A81EF77CCAF8A0 /* Pods_ScheduleAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0436A851F4673C9001C8676 /* MonthViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewProvider.swift; path = MonthView/MonthViewProvider.swift; sourceTree = "<group>"; };
 		E0436A871F467A37001C8676 /* MonthViewProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewProviderTest.swift; sourceTree = "<group>"; };
+		E0436A891F4685AB001C8676 /* MonthViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewCellTest.swift; sourceTree = "<group>"; };
 		E28135D4D7CE518A4492CD69 /* Pods_ScheduleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24E1CC8D68570AF49951ED5 /* Pods-ScheduleAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleAppTests/Pods-ScheduleAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 				1054FAF51F414027003672DE /* ScheduleDaoTest.swift */,
 				1054FAC81F4138BF003672DE /* Info.plist */,
 				E0436A871F467A37001C8676 /* MonthViewProviderTest.swift */,
+				E0436A891F4685AB001C8676 /* MonthViewCellTest.swift */,
 			);
 			path = ScheduleAppTests;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			files = (
 				E0436A881F467A37001C8676 /* MonthViewProviderTest.swift in Sources */,
 				1054FAF61F414027003672DE /* ScheduleDaoTest.swift in Sources */,
+				E0436A8A1F4685AB001C8676 /* MonthViewCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
