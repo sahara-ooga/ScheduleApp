@@ -7,12 +7,15 @@
 //
 
 import XCTest
+@testable import ScheduleApp
 
 class MonthViewCellTest: XCTestCase {
     
+    //let cell:MonthViewCell!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        //FIXME:cellの初期化
     }
     
     override func tearDown() {
@@ -20,16 +23,17 @@ class MonthViewCellTest: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testYobi(){
+        var calender = Calendar.current
+        calender.locale = Locale(identifier: "ja_JP")
+        let weekdaySymbols = calender.shortWeekdaySymbols
+        
+//        for dayIndex in 0..<7{
+//            XCTAssertEqual(cell.yobi(on:dayIndex),
+//                           weekdaySymbols[dayIndex])
+//        }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSetCellFor15thAugust2017() {
     }
-    
 }
