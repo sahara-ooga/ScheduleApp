@@ -36,7 +36,7 @@ extension MonthViewProvider:UICollectionViewDataSource{
 struct MonthViewSettings{
     static let kNumberOfSection = 2
     
-    enum SectionName:Int {
+    enum Section:Int {
         case yobi = 0,
         day
     }
