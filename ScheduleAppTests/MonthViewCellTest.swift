@@ -11,11 +11,13 @@ import XCTest
 
 class MonthViewCellTest: XCTestCase {
     
-    //let cell:MonthViewCell!
+    var cell:MonthViewCell!
+    let calendar = Calendar(identifier: .gregorian)
     
     override func setUp() {
         super.setUp()
-        //FIXME:cellの初期化
+        //FIXME:cellの初期化、storyboard、CollectionViewから初期化して取得する
+        cell = MonthViewCell()
     }
     
     override func tearDown() {
@@ -23,17 +25,28 @@ class MonthViewCellTest: XCTestCase {
         super.tearDown()
     }
     
+    /// 曜日ラベルが正しく設定されているテスト
     func testYobi(){
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ja_JP")
         let weekdaySymbols = calender.shortWeekdaySymbols
         
-//        for dayIndex in 0..<7{
-//            XCTAssertEqual(cell.yobi(on:dayIndex),
-//                           weekdaySymbols[dayIndex])
-//        }
+        for dayIndex in 0..<6{
+            XCTAssertEqual(cell.yobi(on:dayIndex),
+                           weekdaySymbols[dayIndex])
+        }
     }
     
-    func testSetCellFor15thAugust2017() {
+    //TODO:テストすべき箇所の特定
+    /// 2017年8月1日のセルの日付が正しく設定されていることをテスト
+    func testDateForFirstAugust2017() {
+        let date = cell.date(at: IndexPath(item: 2, section: 1),
+                  monthOfDisplay: 8, year: 2017)
+        XCTAssertEqual(date,calendar.date(from:DateComponents(year:2017,month:8,day:1)))
+    }
+    
+    func testSetCellForFirstAugust2017() {
+        cell.set(for: IndexPath(item: 2, section: 1), selectedMonth: 8, selectedYear: 2017)
+        XCTAssertEqual(cell.dayLabel.text, "1")
     }
 }
