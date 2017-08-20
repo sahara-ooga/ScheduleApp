@@ -9,7 +9,8 @@
 import UIKit
 
 class MonthViewProvider: NSObject {
-    
+    var selectedMonth:Int = 1
+    var selectedYear:Int = 2017
 }
 
 //MARK: UICollectionViewDataSource
@@ -27,17 +28,10 @@ extension MonthViewProvider:UICollectionViewDataSource{
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MonthViewCell.self),
                                                       for: indexPath) as! MonthViewCell
-        cell.set(for:indexPath)
+        cell.set(for:indexPath,
+                 selectedMonth: self.selectedMonth,
+                 selectedYear: self.selectedYear)
+        
         return cell
-    }
-}
-
-//MARK: Constants
-struct MonthViewSettings{
-    static let kNumberOfSection = 2
-    
-    enum Section:Int {
-        case yobi = 0,
-        day
     }
 }
