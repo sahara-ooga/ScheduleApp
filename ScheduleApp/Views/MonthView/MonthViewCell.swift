@@ -31,14 +31,20 @@ class MonthViewCell: UICollectionViewCell {
         //FIXME:曜日のセクションか日のセクションで表示を切り替える
         switch indexPath.section {
             //曜日表示のセクションの場合
-        case MonthViewSettings.Section.yobi.rawValue:
-            self.dayLabel.text = yobi(on: indexPath.item)
-            self.indicatorLabel.text = ""
+            case MonthViewSettings.Section.yobi.rawValue:
+                self.dayLabel.text = yobi(on: indexPath.item)
+                self.indicatorLabel.text = ""
             //日にちセクションの場合
-        case MonthViewSettings.Section.day.rawValue:
-            self.dayLabel.text = ""
-        default:
-            self.dayLabel.text = ""
+            case MonthViewSettings.Section.day.rawValue:
+                //このマスの日付を取得
+                let dt = date(at: indexPath,
+                              monthOfDisplay: selectedMonth,
+                              year: selectedYear)
+                let formatter = DateFormatter()
+                formatter.dateFormat = "d"
+                self.dayLabel.text = formatter.string(from: dt!)
+            default:
+                self.dayLabel.text = ""
         }
         
         //当該月に含まれていなければ、文字色を灰色にする
@@ -68,7 +74,12 @@ extension MonthViewCell{
         indicatorLabel.textColor = UIColor.gray
     }
     
-    // set label text info
+    //MARK:label text info for each section
+    
+    /// そのセルに表示すべき曜日を返す
+    ///
+    /// - Parameter row: 左から何番目か
+    /// - Returns: 日本語の曜日("日","月" etc.)
     func yobi(on row:Int)->String{
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ja_JP")
@@ -92,10 +103,8 @@ extension MonthViewCell{
         let calendar = Calendar(identifier: .gregorian)
         guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
                                                                       month: monthOfDisplay,
-                                                                      day: 1))else{
-                                                                        return nil
-        }
-        
+                                                                      day: 1))else{return nil}
+            
         //その月の初日が何曜日か
         //.weekdayは1から始まる
         //例：1:日曜日、7:土曜日
