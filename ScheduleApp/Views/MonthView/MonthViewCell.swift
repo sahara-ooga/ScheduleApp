@@ -75,12 +75,42 @@ extension MonthViewCell{
         return calender.shortWeekdaySymbols[row]
     }
     
-    func date(at indexPath:IndexPath,month:Int,year:Int) -> Date {
-        //TODO:ここを埋めていく
-        //その月の初日が何曜日か
-        //その月の初日が何番目のセルなのか
-        //今、自分は何日に当たるのか
+    /// CollectionView内の位置から、そのセルの日付を割り出す
+    ///
+    /// - Parameters:
+    ///   - indexPath: そのセルの位置
+    ///   - monthOfDisplay: 表示したい月
+    ///   - year: 表示したい月のある年
+    /// - Returns: そのセルが表示したい月
+    func date(at indexPath:IndexPath,monthOfDisplay:Int,year:Int) -> Date? {
+        //曜日のセクションならnilを返す
+        if indexPath.section == 0{
+            return nil
+        }
         
-        return Date()
+        //その月の初日をDate型で取得
+        let calendar = Calendar(identifier: .gregorian)
+        guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
+                                                                      month: monthOfDisplay,
+                                                                      day: 1))else{
+                                                                        return nil
+        }
+        
+        //その月の初日が何曜日か
+        //.weekdayは1から始まる
+        //例：1:日曜日、7:土曜日
+        let weekdayOfFirstDay = calendar.component(.weekday,
+                                                   from: dateOfFirstDay)
+        
+        //その月の初日が何番目のセルなのか
+        //注意：セルは0番目から始まるので、１引くことで確定する
+        //例：2017年8月1日は火曜日なので、weekdayOfFirstDayは３、itemOfFirstDayは２になる
+        let itemOfFirstDay = weekdayOfFirstDay - 1
+        
+        //今、自分は何日に当たるのか
+        //指定された位置と１日の差を見る
+        let diff = indexPath.item - itemOfFirstDay
+        let add = DateComponents(day:diff)
+        return calendar.date(byAdding: add, to: dateOfFirstDay)
     }
 }
