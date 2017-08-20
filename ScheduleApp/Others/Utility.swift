@@ -9,15 +9,12 @@
 import Foundation
 
 struct Utility {
-    static func numberOfDays(in month:Int, year:Int)->Int?{
+    static func numberOfDays(in month:Month, of year:Int)->Int?{
         //その月の初日をDate型で取得
         let calendar = Calendar(identifier: .gregorian)
         guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
                                                                       month: month,
-                                                                      day: 1))else{
-                                                                        
-                                                                        return nil
-        }
+                                                                      day: 1))else{return nil}
         
         let add = DateComponents(month: 1, day:-1)
         

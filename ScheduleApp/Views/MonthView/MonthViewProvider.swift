@@ -8,8 +8,18 @@
 
 import UIKit
 
+typealias Month = Int
+
 class MonthViewProvider: NSObject {
-    var selectedMonth:Int = 1
+    var selectedMonth:Month = 1{
+        didSet {
+            //1から12の範囲内に収まっているようにする
+            if selectedMonth < 1 || selectedMonth > 12 {
+                selectedMonth = 1
+            }
+        }
+    }
+    
     var selectedYear:Int = 2017
 }
 
@@ -21,7 +31,14 @@ extension MonthViewProvider:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case MonthViewSettings.Section.yobi.rawValue:
+            return MonthViewSettings.kNumberOfItemInYobiSection
+        case MonthViewSettings.Section.day.rawValue:
+            return Utility.numberOfDays(in: selectedMonth, of: selectedYear)!
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,

@@ -10,9 +10,11 @@ import Foundation
 
 struct MonthViewSettings{
     static let kNumberOfSection = 2
+    static let kNumberOfItemInYobiSection = 7
     
     enum Section:Int {
         case yobi = 0,
         day
     }
+    
 }
