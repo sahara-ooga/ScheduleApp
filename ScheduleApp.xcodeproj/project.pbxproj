@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAB11F4138BF003672DE /* AppDelegate.swift */; };
 		1054FAB41F4138BF003672DE /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAB31F4138BF003672DE /* MonthViewController.swift */; };
-		1054FAB71F4138BF003672DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1054FAB51F4138BF003672DE /* Main.storyboard */; };
+		1054FAB71F4138BF003672DE /* MonthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1054FAB51F4138BF003672DE /* MonthView.storyboard */; };
 		1054FAB91F4138BF003672DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1054FAB81F4138BF003672DE /* Assets.xcassets */; };
 		1054FABC1F4138BF003672DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */; };
 		1054FAD21F4138BF003672DE /* ScheduleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAD11F4138BF003672DE /* ScheduleAppUITests.swift */; };
@@ -53,7 +53,7 @@
 		1054FAAE1F4138BF003672DE /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1054FAB11F4138BF003672DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1054FAB31F4138BF003672DE /* MonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
-		1054FAB61F4138BF003672DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1054FAB61F4138BF003672DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MonthView.storyboard; sourceTree = "<group>"; };
 		1054FAB81F4138BF003672DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1054FABB1F4138BF003672DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1054FABD1F4138BF003672DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
-				1054FAB51F4138BF003672DE /* Main.storyboard */,
+				1054FAB51F4138BF003672DE /* MonthView.storyboard */,
 				1054FAB31F4138BF003672DE /* MonthViewController.swift */,
 			);
 			path = Controllers;
@@ -374,7 +374,7 @@
 			files = (
 				1054FABC1F4138BF003672DE /* LaunchScreen.storyboard in Resources */,
 				1054FAB91F4138BF003672DE /* Assets.xcassets in Resources */,
-				1054FAB71F4138BF003672DE /* Main.storyboard in Resources */,
+				1054FAB71F4138BF003672DE /* MonthView.storyboard in Resources */,
 				10F64A351F45D2B80078953F /* MonthViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,12 +587,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1054FAB51F4138BF003672DE /* Main.storyboard */ = {
+		1054FAB51F4138BF003672DE /* MonthView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1054FAB61F4138BF003672DE /* Base */,
 			);
-			name = Main.storyboard;
+			name = MonthView.storyboard;
 			path = .;
 			sourceTree = "<group>";
 		};
