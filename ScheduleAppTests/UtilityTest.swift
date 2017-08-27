@@ -7,6 +7,7 @@
 //
 
 import XCTest
+
 @testable import ScheduleApp
 
 class UtilityTest: XCTestCase {
@@ -24,9 +25,9 @@ class UtilityTest: XCTestCase {
     }
     
     func testNumberOfDays() {
-        XCTAssertEqual(Utility.numberOfDays(in: 8, year: 2017), 31)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, year: 2017), 28)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, year: 2020), 29)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, year: 2000), 29)
+        XCTAssertEqual(Utility.numberOfDays(in: 8, of: 2017), 31)
+        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2017), 28)
+        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2020), 29)
+        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2000), 29)
     }
 }
