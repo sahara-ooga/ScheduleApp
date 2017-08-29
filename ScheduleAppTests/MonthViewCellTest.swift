@@ -16,8 +16,13 @@ class MonthViewCellTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        //FIXME:cellの初期化、storyboard、CollectionViewから初期化して取得する
-        cell = MonthViewCell()
+        
+        //cellの初期化
+        let nib = UINib(nibName: String(describing: MonthViewCell.self), bundle: nil)
+        guard let monthViewCell = nib.instantiate(withOwner: nil, options: nil).first as? MonthViewCell else {
+            fatalError()
+        }
+        cell = monthViewCell
     }
     
     override func tearDown() {
@@ -46,7 +51,9 @@ class MonthViewCellTest: XCTestCase {
     }
     
     func testSetCellForFirstAugust2017() {
-        cell.set(for: IndexPath(item: 2, section: 1), selectedMonth: 8, selectedYear: 2017)
+        cell.set(for: IndexPath(item: 2, section: 1),
+                 selectedMonth: 8,
+                 selectedYear: 2017)
         XCTAssertEqual(cell.dayLabel.text, "1")
     }
 }
