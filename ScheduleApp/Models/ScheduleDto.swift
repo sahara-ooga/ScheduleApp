@@ -17,3 +17,19 @@ final class ScheduleDto: NSObject {
     var detail = ""
     var deleteFlag = false
 }
+
+extension ScheduleDto{
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let object = object,
+            let reference = object as? ScheduleDto else {
+            return false
+        }
+        
+        return self.title == reference.title
+            && self.location == reference.location
+            && self.startDate == reference.startDate
+            && self.endDate == reference.endDate
+            && self.detail == reference.detail
+            && self.deleteFlag == reference.deleteFlag
+    }
+}

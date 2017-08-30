@@ -145,6 +145,41 @@ final class ScheduleDao: NSObject {
         }
     }
     
+    /// 特定の日付の予定を取得する
+    ///
+    /// - Parameter date: スケジュールの開始日
+    /// - Returns: その日付のスケジュール
+    func select(at date:Date) -> [ScheduleDto]? {
+        let selectSql = "SELECT * FROM Schedule" +
+                        " WHERE startDate >= :STARTOFTHEDATE AND startDate <= :ENDOFTHEDATE"
+        
+        let params:[String : Any] = ["STARTOFTHEDATE":date.startPoint(),"ENDOFTHEDATE":date.endPoint()!]
+        
+        var resultArray: [ScheduleDto] = []
+        
+        _ = baseDao.dbOpen()
+
+        guard let result = baseDao.db.executeQuery(selectSql,
+                                                           withParameterDictionary: params) else {
+                                                            return nil
+            }
+
+        while result.next() {
+            let scheduleDto = ScheduleDto()
+            scheduleDto.id = Int(result.int(forColumn: "id"))
+            scheduleDto.title = result.string(forColumn: "title")!
+            scheduleDto.location = result.string(forColumn: "location")!
+            scheduleDto.startDate = result.date(forColumn: "startDate")!
+            scheduleDto.endDate = result.date(forColumn: "endDate")!
+            scheduleDto.detail = result.string(forColumn: "detail")!
+            scheduleDto.deleteFlag = result.bool(forColumn: "deleteFlag")
+            resultArray.append(scheduleDto)
+        }
+        
+        _ = baseDao.dbClose()
+        return resultArray
+    }
+    
     // MARK:- UPDATE
     
     /// 指定idのレコードのプロパティのうち与えられたものだけを更新する

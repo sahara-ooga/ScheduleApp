@@ -8,6 +8,8 @@
 
 import XCTest
 import FMDB
+import Nimble
+import Quick
 
 @testable import ScheduleApp
 
@@ -142,48 +144,35 @@ class ScheduleDaoTest: XCTestCase {
         }
     }
     
-    //MARK: Update
-//    func testUpdateDetail() {
-//        //レコードを挿入
-//        //サンプルレコードを作る
-//        let startDate = Date()
-//        let endDate = Date(timeInterval: 60*60*24, since: Date())
-//        let startDate2 = Date(timeInterval: 60*60*24, since: Date())
-//        let endDate2 = Date(timeInterval: 60*60*24, since: startDate2)
-//        
-//        let scheduleDic1:[String:Any] = ["title":"title1","location":"富山",
-//                                         "startDate":startDate,"endDate":endDate,
-//                                         "detail":"detail1","deleteFlag":false]
-//        let scheduleDic2:[String:Any] = ["title":"title2","location":"青森",
-//                                         "startDate":startDate2,"endDate":endDate2,
-//                                         "detail":"detail2","deleteFlag":false]
-//        let scheduleDicArray = [scheduleDic1,scheduleDic2]
-//        
-//        var schedules = [ScheduleDto]()
-//        for dic in scheduleDicArray{
-//            let schedule = ScheduleDto()
-//            schedule.title = dic["title"] as! String
-//            schedule.location = dic["location"] as! String
-//            schedule.startDate = dic["startDate"] as! Date
-//            schedule.endDate = dic["endDate"] as! Date
-//            schedule.detail = dic["detail"] as! String
-//            schedule.deleteFlag = dic["deleteFlag"] as! Bool
-//            schedules.append(schedule)
-//        }
-//        
-//        XCTAssertTrue(dao.insert(scheduleDtos: schedules))
-//        
-//        //レコードをアップデート
-//        XCTAssertTrue(dao.update(id: 1, title: nil, location: nil,
-//                                 startDate: nil, endDate: nil,
-//                                 detail: "updated detail", deleteFlag: nil))
-//        
-//        //アップデートの検証
-//        let updatedSchedules = dao.selectAll()
-//        let updatedSchedule = updatedSchedules![0]
-//        
-//        XCTAssertEqual(updatedSchedule.detail,"updated detail")
-//    }
+    //MARK: Select
+    //特定の日付の予定があるかどうか問い合わせる
+    func testSelectAtDate(){
+        let date = Date()
+        let s = ScheduleDto()
+        s.title = "sample"
+        s.location = "toyama"
+        s.startDate = date
+        s.endDate = date.after(hours: 3)
+        s.detail = "some detail"
+        s.deleteFlag = false
+
+        let bool = dao.insert(s)
+        expect(bool).to(beTrue())
+        guard let schedules = dao.select(at:date) else {
+            XCTFail("fail to select at date")
+            return
+        }
+        expect(schedules.count).to(beGreaterThanOrEqualTo(1))
+        
+        
+        let selectedSchedule = schedules[0]
+        expect(selectedSchedule.title).to(equal(s.title))
+        expect(selectedSchedule.location).to(equal(s.location))
+        expect(selectedSchedule.startDate).to(beCloseTo(date,within:10))
+        expect(selectedSchedule.endDate).to(beCloseTo(s.endDate,within:10))
+        expect(selectedSchedule.detail).to(equal(s.detail))
+        expect(selectedSchedule.deleteFlag).to(equal(s.deleteFlag))
+    }
     
     func testUpdateTitle() {
         //レコードを挿入
