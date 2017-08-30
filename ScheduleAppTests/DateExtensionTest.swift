@@ -33,4 +33,31 @@ class DateExtensionTest: XCTestCase {
         expect(diff) ≈ 3.0 * 60 * 60
     }
     
+    func testStartPoint() {
+        let now = Date()
+        let startPoint = now.startPoint()
+        
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale.current
+        
+        expect(calendar.component(.day, from: startPoint)).to(equal(calendar.component(.day, from: now)))
+        expect(calendar.component(.hour, from: startPoint)).to(equal(0))
+        expect(calendar.component(.minute, from: startPoint)).to(equal(0))
+    }
+    
+    func testEndPoint() {
+        let now = Date()
+        guard let endPoint = now.endPoint() else{
+            XCTFail("failed to generate endPoint")
+            return
+        }
+        
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale.current
+        
+        expect(calendar.component(.day, from: endPoint)).to(equal(calendar.component(.day, from: now)))
+        expect(calendar.component(.hour, from: endPoint)).to(equal(23))
+        expect(calendar.component(.minute, from: endPoint)).to(equal(59))
+        expect(calendar.component(.second, from: endPoint)).to(equal(59))
+    }
 }
