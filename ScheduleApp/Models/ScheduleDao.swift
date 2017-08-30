@@ -15,7 +15,7 @@ final class ScheduleDao: NSObject {
     
     /// Scheduleテーブルが存在しなければ、作成する
     func createTable() -> Bool {
-        //TODO: カラムの定義
+        //カラムの定義
         let createTableSql = "" +
             "CREATE TABLE IF NOT EXISTS Schedule (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -41,7 +41,7 @@ final class ScheduleDao: NSObject {
     // MARK:- INSERT
     
     /// Scheduleテーブルにレコードを追加する
-    func insert(scheduleDto: ScheduleDto) -> Bool {
+    func insert(_ scheduleDto: ScheduleDto) -> Bool {
         let insertSql = "INSERT INTO Schedule(" +
                     "title, " +
                     "location, " +

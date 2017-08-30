@@ -66,7 +66,7 @@ class ScheduleDaoTest: XCTestCase {
         schedule.deleteFlag = false
         
         //DBに挿入する
-        XCTAssertTrue(dao.insert(scheduleDto: schedule))
+        XCTAssertTrue(dao.insert(schedule))
         
         //アサート
         if let schedules = dao.selectAll() {
@@ -174,6 +174,7 @@ class ScheduleDaoTest: XCTestCase {
         expect(selectedSchedule.deleteFlag).to(equal(s.deleteFlag))
     }
     
+    //MARK: Update
     func testUpdateTitle() {
         //レコードを挿入
         //サンプルレコードを作る
