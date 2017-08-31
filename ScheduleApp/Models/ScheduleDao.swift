@@ -153,14 +153,16 @@ final class ScheduleDao: NSObject {
         let selectSql = "SELECT * FROM Schedule" +
                         " WHERE startDate >= :STARTOFTHEDATE AND startDate <= :ENDOFTHEDATE"
         
-        let params:[String : Any] = ["STARTOFTHEDATE":date.startPoint(),"ENDOFTHEDATE":date.endPoint()!]
+        let params:[String : Any] = ["STARTOFTHEDATE":date.startPoint(),
+                                     "ENDOFTHEDATE":date.endPoint()!]
         
         var resultArray: [ScheduleDto] = []
         
         _ = baseDao.dbOpen()
 
         guard let result = baseDao.db.executeQuery(selectSql,
-                                                           withParameterDictionary: params) else {
+                                                           withParameterDictionary: params) else
+        {
                                                             return nil
             }
 
