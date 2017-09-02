@@ -271,3 +271,11 @@ final class ScheduleDao: NSObject {
 
 // MARK:- BaseDao
 extension ScheduleDao: BaseDao {}
+
+// MARK: - Utility method
+extension ScheduleDao{
+    func haveSchedules(at date:Date) -> Bool {
+        let schedules = select(at: date)
+        return (schedules != nil) ? (schedules!.count > 0) : false
+    }
+}

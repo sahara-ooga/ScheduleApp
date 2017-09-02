@@ -387,6 +387,17 @@ class ScheduleDaoTest: XCTestCase {
         let rest = dao.selectAll()
         XCTAssertEqual(rest?.count, 0)
     }
+    
+    func testHaveSchedules() {
+        //予定を挿入して
+        insertTwoRecord()
+        let startDate2 = Date(timeInterval: 60*60*24, since: Date())
+
+        //その予定のある日に予定があることを返すかどうか
+        expect(self.dao.haveSchedules(at: Date())).to(equal(true))
+        expect(self.dao.haveSchedules(at: startDate2)).to(equal(true))
+        expect(self.dao.haveSchedules(at: Date(timeInterval: -60*60*24, since: Date()))).to(equal(false))
+    }
 }
 
 // MARK: - ヘルパーメソッド
@@ -405,9 +416,9 @@ extension ScheduleDaoTest {
     
     func insertTwoRecord() {
         let startDate = Date()
-        let endDate = Date(timeInterval: 60*60*24, since: Date())
+        let endDate = Date(timeInterval: 60*60*1, since: Date())
         let startDate2 = Date(timeInterval: 60*60*24, since: Date())
-        let endDate2 = Date(timeInterval: 60*60*24, since: startDate2)
+        let endDate2 = Date(timeInterval: 60*60*3, since: startDate2)
         
         let scheduleDic1:[String:Any] = ["title":"title1","location":"富山",
                                          "startDate":startDate,"endDate":endDate,
