@@ -9,7 +9,7 @@
 import Foundation
 
 struct TestCommonDefines {
-    static let testDBname = "scheduleForTest.db"
+    static let testDBname = "ScheduleForTest.db"
     static let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                             .userDomainMask,
                                                             true).last!.appendingPathComponent(testDBname)

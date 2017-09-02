@@ -14,13 +14,11 @@ protocol BaseDao {
 }
 
 final class FMDBHelper: NSObject {
-    let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
-                                                     .userDomainMask,
-                                                     true).last!.appendingPathComponent("schedule.db")
+    
     
     var db: FMDatabase
     
-    override init() {
+    init(dbPath:String) {
         db = FMDatabase(path: dbPath)
     }
     

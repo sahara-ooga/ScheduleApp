@@ -14,7 +14,7 @@ import Quick
 @testable import ScheduleApp
 
 class ScheduleDaoTest: XCTestCase {
-    let dao = TestableScheduleDao()
+    let dao = ScheduleDao(dbPath: TestCommonDefines.dbPath)
     
     //utility property
     let oneDayTimeInterval:TimeInterval = 60*60*24
@@ -23,32 +23,35 @@ class ScheduleDaoTest: XCTestCase {
     //データベースファイルごと消去して、新たに作成する
     override func setUp() {
         super.setUp()
+        
         self.clean()
         let _ = dao.createTable()
     }
     
     override func tearDown() {
         self.clean()
+        //ScheduleDao.dbPath = CommonDefines.dbPath
         super.tearDown()
     }
     
     //MARK: Create
     func testCreateNomalTable() {
         let fileManager = FileManager.default
-        let db_is_exist = fileManager.fileExists(atPath: dao.baseDao.dbPath)
+        let db_is_exist = fileManager.fileExists(atPath: TestCommonDefines.dbPath)
         
         //dbファイルが存在する
         XCTAssertTrue(db_is_exist)
         
         //カラムが存在する
+        let tableName = "Schedule"
         XCTAssertTrue(dao.baseDao.dbOpen())
-        XCTAssertTrue(dao.baseDao.db.columnExists("id", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("title", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("location", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("startDate", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("endDate", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("detail", inTableWithName: "Schedule"))
-        XCTAssertTrue(dao.baseDao.db.columnExists("deleteFlag", inTableWithName: "Schedule"))
+        XCTAssertTrue(dao.baseDao.db.columnExists("id", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("title", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("location", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("startDate", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("endDate", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("detail", inTableWithName: tableName))
+        XCTAssertTrue(dao.baseDao.db.columnExists("deleteFlag", inTableWithName: tableName))
         XCTAssertTrue(dao.baseDao.dbClose())
     }
 
@@ -405,9 +408,9 @@ extension ScheduleDaoTest {
     /// データベースファイルを消去する
     func clean() {
         let manager = FileManager.default
-        if manager.fileExists(atPath: dao.baseDao.dbPath) {
+        if manager.fileExists(atPath: TestCommonDefines.dbPath) {
             do {
-                try manager.removeItem(atPath: dao.baseDao.dbPath)
+                try manager.removeItem(atPath: TestCommonDefines.dbPath)
             } catch {
                 print("Error: faild to remove database file.")
             }

@@ -9,7 +9,11 @@
 import UIKit
 
 final class ScheduleDao: NSObject {
-    let baseDao = FMDBHelper()
+    let baseDao:FMDBHelper
+    
+    init(dbPath:String) {
+        self.baseDao = FMDBHelper(dbPath: dbPath)
+    }
     
     // MARK:- Create Table
     
