@@ -26,6 +26,10 @@
 		108D2AD81F49C99900224DE9 /* UtilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD71F49C99900224DE9 /* UtilityTest.swift */; };
 		10F64A341F45D2B80078953F /* MonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F64A321F45D2B80078953F /* MonthViewCell.swift */; };
 		10F64A351F45D2B80078953F /* MonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F64A331F45D2B80078953F /* MonthViewCell.xib */; };
+		10FDBABA1F5A8FAA00D627B1 /* CommonDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */; };
+		10FDBABE1F5A96E800D627B1 /* TestCommonDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDBABD1F5A96E800D627B1 /* TestCommonDefines.swift */; };
+		10FDBAC01F5A97B200D627B1 /* TestableFMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDBABF1F5A97B200D627B1 /* TestableFMDBHelper.swift */; };
+		10FDBAC21F5A984700D627B1 /* TestableScheduleDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDBAC11F5A984700D627B1 /* TestableScheduleDao.swift */; };
 		562C8C1723E0881B01FB7A4D /* Pods_ScheduleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896C63CD2EF55B42B8F18335 /* Pods_ScheduleAppTests.framework */; };
 		5A1235613E6126A001E43E0F /* Pods_ScheduleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28135D4D7CE518A4492CD69 /* Pods_ScheduleApp.framework */; };
 		82E74ECECA716EB6EB0754F5 /* Pods_ScheduleAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A602958A81EF77CCAF8A0 /* Pods_ScheduleAppUITests.framework */; };
@@ -77,6 +81,10 @@
 		108D2AD71F49C99900224DE9 /* UtilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTest.swift; sourceTree = "<group>"; };
 		10F64A321F45D2B80078953F /* MonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewCell.swift; path = MonthView/MonthViewCell.swift; sourceTree = "<group>"; };
 		10F64A331F45D2B80078953F /* MonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MonthViewCell.xib; path = MonthView/MonthViewCell.xib; sourceTree = "<group>"; };
+		10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDefines.swift; sourceTree = "<group>"; };
+		10FDBABD1F5A96E800D627B1 /* TestCommonDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCommonDefines.swift; sourceTree = "<group>"; };
+		10FDBABF1F5A97B200D627B1 /* TestableFMDBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableFMDBHelper.swift; sourceTree = "<group>"; };
+		10FDBAC11F5A984700D627B1 /* TestableScheduleDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableScheduleDao.swift; sourceTree = "<group>"; };
 		2FEF57F6384448A8F72F13E1 /* Pods-ScheduleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleApp/Pods-ScheduleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		40A1475122B7064E01D12891 /* Pods-ScheduleAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleAppUITests/Pods-ScheduleAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		438B0B5C24734DBAAC2BE292 /* Pods-ScheduleAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleAppUITests/Pods-ScheduleAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +170,9 @@
 				E0436A891F4685AB001C8676 /* MonthViewCellTest.swift */,
 				108D2AD71F49C99900224DE9 /* UtilityTest.swift */,
 				1085E4A81F4B2013005C020C /* DateExtensionTest.swift */,
+				10FDBABD1F5A96E800D627B1 /* TestCommonDefines.swift */,
+				10FDBABF1F5A97B200D627B1 /* TestableFMDBHelper.swift */,
+				10FDBAC11F5A984700D627B1 /* TestableScheduleDao.swift */,
 			);
 			path = ScheduleAppTests;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 				1054FAB11F4138BF003672DE /* AppDelegate.swift */,
 				1054FAB81F4138BF003672DE /* Assets.xcassets */,
 				1054FABD1F4138BF003672DE /* Info.plist */,
+				10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -550,6 +562,7 @@
 				108D2AD41F49C03100224DE9 /* MonthViewSettings.swift in Sources */,
 				1054FAF41F413FE6003672DE /* ScheduleDao.swift in Sources */,
 				10F64A341F45D2B80078953F /* MonthViewCell.swift in Sources */,
+				10FDBABA1F5A8FAA00D627B1 /* CommonDefines.swift in Sources */,
 				1054FAED1F413F0D003672DE /* FMDBHelper.swift in Sources */,
 				1085E4A51F4A5D75005C020C /* MonthViewFlowLayout.swift in Sources */,
 				1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */,
@@ -564,9 +577,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				108D2AD81F49C99900224DE9 /* UtilityTest.swift in Sources */,
+				10FDBAC21F5A984700D627B1 /* TestableScheduleDao.swift in Sources */,
 				E0436A881F467A37001C8676 /* MonthViewProviderTest.swift in Sources */,
 				1054FAF61F414027003672DE /* ScheduleDaoTest.swift in Sources */,
+				10FDBABE1F5A96E800D627B1 /* TestCommonDefines.swift in Sources */,
 				1085E4A91F4B2013005C020C /* DateExtensionTest.swift in Sources */,
+				10FDBAC01F5A97B200D627B1 /* TestableFMDBHelper.swift in Sources */,
 				E0436A8A1F4685AB001C8676 /* MonthViewCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

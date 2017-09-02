@@ -14,7 +14,7 @@ import Quick
 @testable import ScheduleApp
 
 class ScheduleDaoTest: XCTestCase {
-    let dao = ScheduleDao()
+    let dao = TestableScheduleDao()
     
     //utility property
     let oneDayTimeInterval:TimeInterval = 60*60*24
