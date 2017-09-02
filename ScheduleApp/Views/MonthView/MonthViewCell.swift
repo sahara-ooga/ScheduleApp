@@ -18,15 +18,10 @@ class MonthViewCell: UICollectionViewCell {
     }
     
     func set(for indexPath:IndexPath,selectedMonth:Int,selectedYear:Int) {
-        //日曜日なら赤文字、土曜日は青文字、その他黒文字
-        //日曜始まりなので、７で割ったあまりが０なら日曜日のセルになる
-        if indexPath.row % 7 == 0{
-            makeLabelsRed()
-        }else if indexPath.row % 7 == 6{
-            makeLabelsBlue()
-        }else{
-            makeLabelsBlack()
-        }
+        
+        setDayLabelColor(for: indexPath,
+                         selectedMonth: selectedMonth,
+                         selectedYear: selectedYear)
         
         //FIXME:曜日のセクションか日のセクションで表示を切り替える
         switch indexPath.section {
@@ -36,18 +31,48 @@ class MonthViewCell: UICollectionViewCell {
                 self.indicatorLabel.text = ""
             //日にちセクションの場合
             case MonthViewSettings.Section.day.rawValue:
-                //このマスの日付を取得
+                //このマスの日付を取得して、日の文字列をラベルに設定
                 let dt = date(at: indexPath,
                               monthOfDisplay: selectedMonth,
                               year: selectedYear)
-                let formatter = DateFormatter()
-                formatter.dateFormat = "d"
-                self.dayLabel.text = formatter.string(from: dt!)
+                guard let dateAtCell = dt else {
+                    return
+                }
+                
+                self.dayLabel.text = dateAtCell.dayString
             default:
                 self.dayLabel.text = ""
         }
+    }
+    
+    func setDayLabelColor(for indexPath:IndexPath,
+                          selectedMonth:Int,
+                          selectedYear:Int) {
+        //日曜日なら赤文字、土曜日は青文字、その他黒文字
+        //日曜始まりなので、７で割ったあまりが０なら日曜日のセルになる
+        if indexPath.item % 7 == 0{
+            makeLabelsRed()
+        }else if indexPath.item % 7 == 6{
+            makeLabelsBlue()
+        }else{
+            makeLabelsBlack()
+        }
         
-        //当該月に含まれていなければ、文字色を灰色にする
+        if indexPath.section == MonthViewSettings.Section.day.rawValue{
+            let dt = date(at: indexPath,
+                          monthOfDisplay: selectedMonth,
+                          year: selectedYear)
+            guard let dateAtCell = dt else {
+                return
+            }
+            
+            //当該月に含まれていなければ、文字色を灰色にする
+            var calendar = Calendar(identifier: .gregorian)
+            calendar.locale = Locale.current
+            if calendar.component(.month, from: dateAtCell) != selectedMonth{
+                makeLabelsGlay()
+            }
+        }
     }
 }
 
@@ -94,13 +119,16 @@ extension MonthViewCell{
     ///   - year: 表示したい月のある年
     /// - Returns: そのセルが表示したい月
     func date(at indexPath:IndexPath,monthOfDisplay:Int,year:Int) -> Date? {
+        #if false
         //曜日のセクションならnilを返す
         if indexPath.section == 0{
             return nil
         }
         
         //その月の初日をDate型で取得
-        let calendar = Calendar(identifier: .gregorian)
+        var calendar = Calendar(identifier: .gregorian)
+        //calendar.locale = Locale.current
+        
         guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
                                                                       month: monthOfDisplay,
                                                                       day: 1))else{return nil}
@@ -121,5 +149,42 @@ extension MonthViewCell{
         let diff = indexPath.item - itemOfFirstDay
         let add = DateComponents(day:diff)
         return calendar.date(byAdding: add, to: dateOfFirstDay)
+        #else
+            //曜日のセクションならnilを返す
+            if indexPath.section == 0{
+                return nil
+            }
+            
+            if indexPath.item < 0{
+                return nil
+            }
+            
+            //その月の初日をDate型で取得
+            let calendar = Calendar(identifier: .gregorian)
+            guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
+                                                                          month: monthOfDisplay,
+                                                                          day: 1))else{
+                                                                            
+                                                                            return nil
+            }
+            
+            //その月の初日が何曜日か
+            //.weekdayは1から始まる
+            //例：1:日曜日、7:土曜日
+            let weekdayOfFirstDay = calendar.component(.weekday,
+                                                       from: dateOfFirstDay)
+            
+            //その月の初日が何番目のセルなのか
+            //注意：セルは0番目から始まるので、１引くことで確定する
+            //例：2017年8月1日は火曜日なので、weekdayOfFirstDayは３、itemOfFirstDayは２になる
+            let itemOfFirstDay = weekdayOfFirstDay - 1
+            
+            //今、自分は何日に当たるのか
+            //指定された位置と１日の差を見る
+            let diff = indexPath.item - itemOfFirstDay
+            let add = DateComponents(day:diff)
+            return calendar.date(byAdding: add, to: dateOfFirstDay)
+        #endif
     }
+    
 }
