@@ -43,4 +43,12 @@ public extension Date{
         
         return calendar.date(byAdding: comps, to: tomorrow!)
     }
+    
+    /// 指定された日時の日付の文字列。システムのタイムゾーンに従う
+    var dayString:String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d"
+        formatter.locale = Locale.current
+        return formatter.string(from: self)
+    }
 }

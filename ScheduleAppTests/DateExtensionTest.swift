@@ -14,6 +14,12 @@ import Nimble
 import Quick
 
 class DateExtensionTest: XCTestCase {
+    var calendar:Calendar{
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale.current
+        return calendar
+    }
+    
     
     override func setUp() {
         super.setUp()
@@ -28,6 +34,7 @@ class DateExtensionTest: XCTestCase {
     func testDateAfterHours(){
         let date = Date()
         let dateAfter3hours = date.after(hours:3)
+        
         //timeIntervalSinceは秒単位なので、補正する必要がある
         let diff = dateAfter3hours.timeIntervalSince(date)
         expect(diff) ≈ 3.0 * 60 * 60
@@ -59,5 +66,11 @@ class DateExtensionTest: XCTestCase {
         expect(calendar.component(.hour, from: endPoint)).to(equal(23))
         expect(calendar.component(.minute, from: endPoint)).to(equal(59))
         expect(calendar.component(.second, from: endPoint)).to(equal(59))
+    }
+    
+    /// dayStringのテスト
+    func testDayStringAt0730(){
+        let date = calendar.date(from:DateComponents(year:2017,month:7,day:30))
+        expect(date?.dayString).to(equal("30"))
     }
 }
