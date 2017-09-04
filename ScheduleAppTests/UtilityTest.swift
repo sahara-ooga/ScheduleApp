@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 
 @testable import ScheduleApp
 
@@ -25,9 +26,8 @@ class UtilityTest: XCTestCase {
     }
     
     func testNumberOfDays() {
-        XCTAssertEqual(Utility.numberOfDays(in: 8, of: 2017), 31)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2017), 28)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2020), 29)
-        XCTAssertEqual(Utility.numberOfDays(in: 2, of: 2000), 29)
+        expect(Utility.numberOfDays(in:8, of:2017)) == 31
+        expect(Utility.numberOfDays(in: 2, of: 2017)) == 28
+        expect(Utility.numberOfDays(in: 2, of: 2000)) == 29
     }
 }
