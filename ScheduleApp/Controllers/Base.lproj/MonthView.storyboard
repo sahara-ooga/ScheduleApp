@@ -11,7 +11,7 @@
         <!--2017年8月-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MonthViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MonthViewController" id="BYZ-38-t0r" customClass="MonthViewController" customModule="ScheduleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,6 +60,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="2017年8月" id="owS-ZQ-vhV"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Jbx-Bw-NZv" id="j6w-XY-jVJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
