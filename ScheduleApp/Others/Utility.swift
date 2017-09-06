@@ -9,6 +9,9 @@
 import UIKit
 
 struct Utility {
+    // *****************
+    // MARK: Manage Date
+    // *****************
     static func numberOfDays(in month:Month, of year:Int)->Int?{
         //その月の初日をDate型で取得
         let calendar = Calendar(identifier: .gregorian)
@@ -26,7 +29,7 @@ struct Utility {
         let dateString = formatter.string(from: dateOfLastDay!)
         return Int(dateString)
     }
-
+    
     // *****************
     // MARK: Alert Message
     // *****************
