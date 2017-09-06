@@ -51,4 +51,15 @@ public extension Date{
         formatter.locale = Locale.current
         return formatter.string(from: self)
     }
+    
+    var year:Int{
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.year, from: self)
+    }
+    
+    var month:Int{
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.month, from: self)
+    }
+    
 }

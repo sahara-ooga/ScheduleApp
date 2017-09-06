@@ -73,4 +73,14 @@ class DateExtensionTest: XCTestCase {
         let date = calendar.date(from:DateComponents(year:2017,month:7,day:30))
         expect(date?.dayString).to(equal("30"))
     }
+    
+    func testYear() {
+        let date = calendar.date(from:DateComponents(year:2017,month:7,day:30))
+        expect(date?.year) == 2017
+    }
+    
+    func testMonth() {
+        let date = calendar.date(from:DateComponents(year:2017,month:7,day:30))
+        expect(date?.month) == 7
+    }
 }
