@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJg-ou-h6m">
-                        <rect key="frame" x="18.5" y="27" width="13" height="18"/>
+                        <rect key="frame" x="18.5" y="31" width="13" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,9 +32,9 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="MJg-ou-h6m" firstAttribute="top" secondItem="dRF-0f-WhV" secondAttribute="bottom" constant="10" id="3LT-wf-oYg"/>
                 <constraint firstItem="dRF-0f-WhV" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7JG-9r-uKS"/>
                 <constraint firstItem="dRF-0f-WhV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PKy-SJ-RJf"/>
-                <constraint firstAttribute="bottom" secondItem="MJg-ou-h6m" secondAttribute="bottom" constant="5" id="Zgy-nf-0HG"/>
                 <constraint firstItem="MJg-ou-h6m" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kRe-ax-TXc"/>
             </constraints>
             <connections>
