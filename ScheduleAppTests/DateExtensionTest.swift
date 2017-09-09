@@ -47,9 +47,9 @@ class DateExtensionTest: XCTestCase {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale.current
         
-        expect(calendar.component(.day, from: startPoint)).to(equal(calendar.component(.day, from: now)))
-        expect(calendar.component(.hour, from: startPoint)).to(equal(0))
-        expect(calendar.component(.minute, from: startPoint)).to(equal(0))
+        expect(calendar.component(.day, from: startPoint)) == calendar.component(.day, from: now)
+        expect(calendar.component(.hour, from: startPoint)) == 0
+        expect(calendar.component(.minute, from: startPoint)) == 0
     }
     
     func testEndPoint() {
@@ -62,10 +62,10 @@ class DateExtensionTest: XCTestCase {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale.current
         
-        expect(calendar.component(.day, from: endPoint)).to(equal(calendar.component(.day, from: now)))
-        expect(calendar.component(.hour, from: endPoint)).to(equal(23))
-        expect(calendar.component(.minute, from: endPoint)).to(equal(59))
-        expect(calendar.component(.second, from: endPoint)).to(equal(59))
+        expect(calendar.component(.day, from: endPoint)) == calendar.component(.day, from: now)
+        expect(calendar.component(.hour, from: endPoint)) == 23
+        expect(calendar.component(.minute, from: endPoint)) == 59
+        expect(calendar.component(.second, from: endPoint)) == 59
     }
     
     /// dayStringのテスト
@@ -80,7 +80,7 @@ class DateExtensionTest: XCTestCase {
     }
     
     func testMonth() {
-        let date = calendar.date(from:DateComponents(year:2017,month:7,day:30))
-        expect(date?.month) == 7
+        let date = calendar.date(from:DateComponents(year:2017,month:9,day:1))
+        expect(date?.month) == 9
     }
 }
