@@ -12,7 +12,7 @@ struct Utility {
     // *****************
     // MARK: Manage Date
     // *****************
-    static func numberOfDays(in month:Month, of year:Int)->Int?{
+    static func numberOfDays(in month:Int, of year:Int)->Int?{
         //その月の初日をDate型で取得
         let calendar = Calendar(identifier: .gregorian)
         guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,

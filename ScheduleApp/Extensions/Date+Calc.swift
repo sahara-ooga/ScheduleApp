@@ -9,6 +9,15 @@
 import Foundation
 
 public extension Date{
+    
+    static func date(at year:Int = 2017, month:Int,day:Int = 1)->Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        
+        return calendar.date(from: DateComponents(year: year,
+                                                  month: month,
+                                                  day: day))
+    }
+    
     //X時間後の日付を返す
     func after(hours:Int) -> Date {
         let calendar = Calendar(identifier: .gregorian)
@@ -62,4 +71,77 @@ public extension Date{
         return calendar.component(.month, from: self)
     }
     
+}
+
+extension Date{
+    var numberOfDays:Int{
+        //その月の初日をDate型で取得
+        let calendar = Calendar(identifier: .gregorian)
+        
+        //当月の最終日を取得
+        let dateOfLastDay = self.lastDateOfMonth!
+        
+        return calendar.component(.day, from: dateOfLastDay)
+    }
+    
+    var firstDateOfMonth:Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        var component = calendar.dateComponents([.year,.month,.day] ,from: self)
+        component.day = 1
+        
+        return calendar.date(from: component)
+    }
+    
+    var lastDateOfMonth:Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        guard let firstDateOfMonth = self.firstDateOfMonth else { return nil }
+        let comps = DateComponents(month:1,day:-1)
+        return calendar.date(byAdding: comps, to: firstDateOfMonth)
+    }
+    
+    /// グレゴリオ暦の曜日を番号で返す。
+    ///
+    /// - Returns: 日曜日は１。土曜日は７
+    var weekDay:Int{
+        var calender = Calendar(identifier: .gregorian)
+        calender.locale = Locale.current
+        return calender.component(.weekday, from: self)
+    }
+    
+    func neededRowNumberForCalendar()->Int{
+        let firstDate = self.firstDateOfMonth!
+        
+        //1日が土曜日の場合、2月なら5行必要.2月でなければ6行必要
+        if (firstDate.weekDay == 7) {
+            if (firstDate.month == 2) {
+                return 5;
+            }else{
+                return 6;
+            }
+        }
+        
+        //1日が金曜日なら、31日ある月なら6行必要、それ以外は5行必要
+        if (firstDate.weekDay == 6) {
+            if (self.numberOfDays == 31) {
+                return 6;
+            }else{
+                return 5;
+            }
+        }
+        
+        //「1日が日曜で2月」でないなら５行
+        //　言い換えると
+        //「１日が日曜でない」または「２月でない」なら５行
+        if ((firstDate.weekDay != 1) || (self.month != 2)){
+            return 5;
+        }
+        
+        //「1日が日曜で2月」でかつうるう年なら５行
+        if (firstDate.weekDay == 1 && self.month == 2 && self.numberOfDays == 29) {
+            return 5;
+        }
+        
+        // 上記以外４
+        return 4
+    }
 }

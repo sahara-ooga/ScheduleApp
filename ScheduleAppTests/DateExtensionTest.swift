@@ -83,4 +83,20 @@ class DateExtensionTest: XCTestCase {
         let date = calendar.date(from:DateComponents(year:2017,month:9,day:1))
         expect(date?.month) == 9
     }
+    
+    /// その月のカレンダーで表示する日数を返す
+    func testNeededRowNumForCalendar() {
+        expect(Date.date(at: 2017, month: 1, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 2, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 3, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 4, day: 10)?.neededRowNumberForCalendar()) == 6
+        expect(Date.date(at: 2017, month: 5, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 6, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 7, day: 10)?.neededRowNumberForCalendar()) == 6
+        expect(Date.date(at: 2017, month: 8, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 9, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 10, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 11, day: 10)?.neededRowNumberForCalendar()) == 5
+        expect(Date.date(at: 2017, month: 12, day: 10)?.neededRowNumberForCalendar()) == 6
+    }
 }

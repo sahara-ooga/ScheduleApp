@@ -8,19 +8,20 @@
 
 import UIKit
 
-typealias Month = Int
-
 class MonthViewProvider: NSObject {
-    var selectedMonth:Month = 1{
-        didSet {
-            //1から12の範囲内に収まっているようにする
-            if selectedMonth < 1 || selectedMonth > 12 {
-                selectedMonth = 1
-            }
+    var selectedMonth:Int{
+        get {
+            return self.selectedDate.month
         }
     }
     
-    var selectedYear:Int = 2017
+    var selectedYear:Int{
+        get {
+            return self.selectedDate.year
+        }
+    }
+    
+    var selectedDate:Date!
 }
 
 //MARK: UICollectionViewDataSource
@@ -35,7 +36,9 @@ extension MonthViewProvider:UICollectionViewDataSource{
         case MonthViewSettings.Section.yobi.rawValue:
             return MonthViewSettings.kNumberOfItemInYobiSection
         case MonthViewSettings.Section.day.rawValue:
-            return Utility.numberOfDays(in: selectedMonth, of: selectedYear)!
+            //その月の日をすべて含み、足りないところは前月・翌月の日で埋める正方形になるように表示する
+            let numberOfWeeks = selectedDate.neededRowNumberForCalendar()
+            return numberOfWeeks * CommonDefines.daysOfWeek
         default:
             return 0
         }

@@ -33,8 +33,7 @@ extension MonthViewController{
                                            bundle: nil),
                                 forCellWithReuseIdentifier: String(describing: MonthViewCell.self))
         let monthViewProvider = MonthViewProvider()
-        monthViewProvider.selectedYear = Date().year
-        monthViewProvider.selectedMonth = Date().month
+        monthViewProvider.selectedDate = Date()
         monthViewDataSource = monthViewProvider
         flowLayout = MonthViewFlowLayout()
         

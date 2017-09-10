@@ -14,5 +14,6 @@ struct CommonDefines {
     static let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                      .userDomainMask,
                                                      true).last!.appendingPathComponent(DBname)
+    static let daysOfWeek = 7
 }
 
