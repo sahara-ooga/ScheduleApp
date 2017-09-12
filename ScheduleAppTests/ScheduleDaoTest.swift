@@ -30,7 +30,6 @@ class ScheduleDaoTest: XCTestCase {
     
     override func tearDown() {
         self.clean()
-        //ScheduleDao.dbPath = CommonDefines.dbPath
         super.tearDown()
     }
     

@@ -11,10 +11,13 @@ import UIKit
 class MonthViewCell: UICollectionViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var indicatorLabel: UILabel!
+    var indicatorDataSource:IndicatorDataSource!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        indicatorDataSource = IndicatorDataProvider()
     }
     
     func set(for indexPath:IndexPath,selectedMonth:Int,selectedYear:Int) {
@@ -40,6 +43,7 @@ class MonthViewCell: UICollectionViewCell {
                 }
                 
                 self.dayLabel.text = dateAtCell.dayString
+            
             default:
                 self.dayLabel.text = ""
         }
@@ -62,9 +66,12 @@ class MonthViewCell: UICollectionViewCell {
             let dt = date(at: indexPath,
                           monthOfDisplay: selectedMonth,
                           year: selectedYear)
+            
             guard let dateAtCell = dt else {
                 return
             }
+            
+            setIndicator(on: dateAtCell)
             
             //当該月に含まれていなければ、文字色を灰色にする
             var calendar = Calendar(identifier: .gregorian)
@@ -73,6 +80,19 @@ class MonthViewCell: UICollectionViewCell {
                 makeLabelsGlay()
             }
         }
+    }
+    
+    func setIndicator(on date:Date) {
+        let on = shouldIndicate(on: date)
+        setIndicaterText(on)
+    }
+    
+    func shouldIndicate(on date:Date) -> Bool {
+        return indicatorDataSource.shouldIndicate(at:date)
+    }
+    
+    func setIndicaterText(_ on:Bool) {
+        indicatorLabel.text = on ? "●" : ""
     }
 }
 
@@ -149,6 +169,7 @@ extension MonthViewCell{
         let diff = indexPath.item - itemOfFirstDay
         let add = DateComponents(day:diff)
         return calendar.date(byAdding: add, to: dateOfFirstDay)
+        
         #else
             //曜日のセクションならnilを返す
             if indexPath.section == 0{
@@ -163,10 +184,7 @@ extension MonthViewCell{
             let calendar = Calendar(identifier: .gregorian)
             guard let dateOfFirstDay = calendar.date(from: DateComponents(year: year,
                                                                           month: monthOfDisplay,
-                                                                          day: 1))else{
-                                                                            
-                                                                            return nil
-            }
+                                                                          day: 1))else{return nil}
             
             //その月の初日が何曜日か
             //.weekdayは1から始まる
@@ -186,5 +204,4 @@ extension MonthViewCell{
             return calendar.date(byAdding: add, to: dateOfFirstDay)
         #endif
     }
-    
 }

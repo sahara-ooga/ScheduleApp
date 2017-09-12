@@ -24,6 +24,8 @@
 		108D2AD41F49C03100224DE9 /* MonthViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD31F49C03100224DE9 /* MonthViewSettings.swift */; };
 		108D2AD61F49C90900224DE9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD51F49C90900224DE9 /* Utility.swift */; };
 		108D2AD81F49C99900224DE9 /* UtilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD71F49C99900224DE9 /* UtilityTest.swift */; };
+		10DC3C551F6525F400FE7828 /* IndicatorDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C541F6525F400FE7828 /* IndicatorDataProvider.swift */; };
+		10DC3C591F66259400FE7828 /* IndicatorDataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */; };
 		10F64A341F45D2B80078953F /* MonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F64A321F45D2B80078953F /* MonthViewCell.swift */; };
 		10F64A351F45D2B80078953F /* MonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F64A331F45D2B80078953F /* MonthViewCell.xib */; };
 		10FDBABA1F5A8FAA00D627B1 /* CommonDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */; };
@@ -77,6 +79,8 @@
 		108D2AD31F49C03100224DE9 /* MonthViewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewSettings.swift; path = MonthView/MonthViewSettings.swift; sourceTree = "<group>"; };
 		108D2AD51F49C90900224DE9 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		108D2AD71F49C99900224DE9 /* UtilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTest.swift; sourceTree = "<group>"; };
+		10DC3C541F6525F400FE7828 /* IndicatorDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndicatorDataProvider.swift; path = MonthView/IndicatorDataProvider.swift; sourceTree = "<group>"; };
+		10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorDataProviderTest.swift; sourceTree = "<group>"; };
 		10F64A321F45D2B80078953F /* MonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewCell.swift; path = MonthView/MonthViewCell.swift; sourceTree = "<group>"; };
 		10F64A331F45D2B80078953F /* MonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MonthViewCell.xib; path = MonthView/MonthViewCell.xib; sourceTree = "<group>"; };
 		10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDefines.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				108D2AD71F49C99900224DE9 /* UtilityTest.swift */,
 				1085E4A81F4B2013005C020C /* DateExtensionTest.swift */,
 				10FDBABD1F5A96E800D627B1 /* TestCommonDefines.swift */,
+				10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */,
 			);
 			path = ScheduleAppTests;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				E0436A851F4673C9001C8676 /* MonthViewProvider.swift */,
 				108D2AD31F49C03100224DE9 /* MonthViewSettings.swift */,
 				1085E4A41F4A5D75005C020C /* MonthViewFlowLayout.swift */,
+				10DC3C541F6525F400FE7828 /* IndicatorDataProvider.swift */,
 			);
 			name = MonthView;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 			files = (
 				108D2AD61F49C90900224DE9 /* Utility.swift in Sources */,
 				1054FAB41F4138BF003672DE /* MonthViewController.swift in Sources */,
+				10DC3C551F6525F400FE7828 /* IndicatorDataProvider.swift in Sources */,
 				1085E4A71F4B1EF4005C020C /* Date+Calc.swift in Sources */,
 				108D2AD41F49C03100224DE9 /* MonthViewSettings.swift in Sources */,
 				1054FAF41F413FE6003672DE /* ScheduleDao.swift in Sources */,
@@ -575,6 +582,7 @@
 				1054FAF61F414027003672DE /* ScheduleDaoTest.swift in Sources */,
 				10FDBABE1F5A96E800D627B1 /* TestCommonDefines.swift in Sources */,
 				1085E4A91F4B2013005C020C /* DateExtensionTest.swift in Sources */,
+				10DC3C591F66259400FE7828 /* IndicatorDataProviderTest.swift in Sources */,
 				E0436A8A1F4685AB001C8676 /* MonthViewCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

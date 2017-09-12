@@ -11,7 +11,7 @@ import UIKit
 final class ScheduleDao: NSObject {
     let baseDao:FMDBHelper
     
-    init(dbPath:String) {
+    init(dbPath:String = CommonDefines.dbPath) {
         self.baseDao = FMDBHelper(dbPath: dbPath)
     }
     
@@ -34,7 +34,7 @@ final class ScheduleDao: NSObject {
             _ = baseDao.dbOpen()
             try baseDao.db.executeUpdate(createTableSql, values: nil)
             _ = baseDao.dbClose()
-        
+            
             return true
         }catch{
             print("update error.")
@@ -273,11 +273,16 @@ final class ScheduleDao: NSObject {
 
 }
 
-// MARK:- BaseDao
+// MARK:- BaseDaoに準拠
 extension ScheduleDao: BaseDao {}
 
 // MARK: - Utility method
 extension ScheduleDao{
+    
+    /// ある特定の日におけるスケジュールの存在の有無
+    ///
+    /// - Parameter date: スケジュールの有無を問い合わせたい日付
+    /// - Returns: その日に始まるスケジュールが一個でもあればtrue
     func haveSchedules(at date:Date) -> Bool {
         let schedules = select(at: date)
         return (schedules != nil) ? (schedules!.count > 0) : false

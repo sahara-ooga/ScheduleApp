@@ -9,7 +9,7 @@
 import Foundation
 
 struct CommonDefines {
-    static let DBname = "schedule.db"
+    static let DBname = "Schedule.db"
     
     static let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                      .userDomainMask,

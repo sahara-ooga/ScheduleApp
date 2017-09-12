@@ -9,12 +9,14 @@
 import Foundation
 import FMDB
 
+/// FMDBHelperから情報を引き出すオブジェクトが準拠するプロトコル
 protocol BaseDao {
     var baseDao: FMDBHelper { get }
+    
+    func haveSchedules(at date:Date) -> Bool
 }
 
 final class FMDBHelper: NSObject {
-    
     
     var db: FMDatabase
     
