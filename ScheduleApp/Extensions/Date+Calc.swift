@@ -73,7 +73,15 @@ public extension Date{
     
 }
 
+// MARK: - カレンダー表示に必要なメソッド
 extension Date{
+    var titleForThisMonth:String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年M月"
+        return formatter.string(from: self)
+    }
+    
+    /// その月の日数
     var numberOfDays:Int{
         //その月の初日をDate型で取得
         let calendar = Calendar(identifier: .gregorian)
@@ -84,6 +92,7 @@ extension Date{
         return calendar.component(.day, from: dateOfLastDay)
     }
     
+    /// 月の初日
     var firstDateOfMonth:Date?{
         let calendar = Calendar(identifier: .gregorian)
         var component = calendar.dateComponents([.year,.month,.day] ,from: self)
@@ -92,6 +101,7 @@ extension Date{
         return calendar.date(from: component)
     }
     
+    /// 月の末日
     var lastDateOfMonth:Date?{
         let calendar = Calendar(identifier: .gregorian)
         guard let firstDateOfMonth = self.firstDateOfMonth else { return nil }
@@ -108,6 +118,9 @@ extension Date{
         return calender.component(.weekday, from: self)
     }
     
+    /// 該当月のカレンダーに必要な行数を返す
+    ///
+    /// - Returns: カレンダーの行数
     func neededRowNumberForCalendar()->Int{
         let firstDate = self.firstDateOfMonth!
         

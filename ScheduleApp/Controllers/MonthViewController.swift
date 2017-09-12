@@ -31,16 +31,24 @@ class MonthViewController: UIViewController {
 
 extension MonthViewController{
     func setCollectionView() {
+        //初期表示には現在時刻を元にする
+        let initialDate = Date()
         collectionView.register(UINib.init(nibName: String(describing: MonthViewCell.self),
                                            bundle: nil),
                                 forCellWithReuseIdentifier: String(describing: MonthViewCell.self))
         let monthViewProvider = MonthViewProvider()
-        monthViewProvider.selectedDate = Date()
+        monthViewProvider.selectedDate = initialDate
         monthViewDataSource = monthViewProvider
         flowLayout = MonthViewFlowLayout()
         
         collectionView.dataSource = monthViewDataSource
         collectionView.delegate = flowLayout
+        
+        setTitle(for: initialDate)
+    }
+    
+    func setTitle(for date:Date) {
+        self.navigationItem.title = date.titleForThisMonth
     }
     
     func setDB(at path:String) {
@@ -49,6 +57,7 @@ extension MonthViewController{
     }
 }
 
+// MARK: - レコードと表示の関係を確かめるためのメソッド群
 extension MonthViewController{
     /// レコードを挿入して、インジケータが表示されることを確認するためのメソッド
     func insertAndIndicatorTest() {

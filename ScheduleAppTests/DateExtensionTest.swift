@@ -99,4 +99,8 @@ class DateExtensionTest: XCTestCase {
         expect(Date.date(at: 2017, month: 11, day: 10)?.neededRowNumberForCalendar()) == 5
         expect(Date.date(at: 2017, month: 12, day: 10)?.neededRowNumberForCalendar()) == 6
     }
+    
+    func testTitle() {
+        expect(Date.date(at: 2017, month: 9, day: 4)?.titleForThisMonth) == "2017年9月"
+    }
 }
