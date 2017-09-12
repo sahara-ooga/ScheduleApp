@@ -18,6 +18,7 @@ class MonthViewController: UIViewController {
         super.viewDidLoad()
         setDB(at: CommonDefines.dbPath)
         //insertAndIndicatorTest()  //成功 at 2017/09/12
+        //deleteAllRecord(at: CommonDefines.dbPath)
         setCollectionView()
     }
 
@@ -46,10 +47,18 @@ extension MonthViewController{
         let dao = ScheduleDao(dbPath: path)
         _ = dao.createTable()
     }
-    
+}
+
+extension MonthViewController{
     /// レコードを挿入して、インジケータが表示されることを確認するためのメソッド
     func insertAndIndicatorTest() {
         insertTwoRecord(at: CommonDefines.dbPath)
+    }
+    
+    func deleteAllRecord(at path:String){
+        //作ったスケジュールを削除する
+        let dao = ScheduleDao(dbPath: path)
+        _ = dao.deleteAll()
     }
     
     func insertTwoRecord(at path:String) {
