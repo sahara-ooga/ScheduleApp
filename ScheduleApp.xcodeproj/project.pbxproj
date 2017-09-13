@@ -20,6 +20,7 @@
 		1054FAF61F414027003672DE /* ScheduleDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAF51F414027003672DE /* ScheduleDaoTest.swift */; };
 		10583E531F6965A500F1E600 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10583E521F6965A500F1E600 /* String+Localized.swift */; };
 		10583E561F69668100F1E600 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10583E581F69668100F1E600 /* Localizable.strings */; };
+		10583E5C1F69747500F1E600 /* ScheduleView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10583E5E1F69747500F1E600 /* ScheduleView.strings */; };
 		1085E4A51F4A5D75005C020C /* MonthViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085E4A41F4A5D75005C020C /* MonthViewFlowLayout.swift */; };
 		1085E4A71F4B1EF4005C020C /* Date+Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085E4A61F4B1EF4005C020C /* Date+Calc.swift */; };
 		1085E4A91F4B2013005C020C /* DateExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085E4A81F4B2013005C020C /* DateExtensionTest.swift */; };
@@ -78,6 +79,8 @@
 		10583E521F6965A500F1E600 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Localized.swift"; path = "Extensions/String+Localized.swift"; sourceTree = "<group>"; };
 		10583E571F69668100F1E600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		10583E591F6966A400F1E600 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10583E5D1F69747500F1E600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ScheduleView.strings; sourceTree = "<group>"; };
+		10583E5F1F6974FE00F1E600 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ScheduleView.strings; sourceTree = "<group>"; };
 		1085E4A41F4A5D75005C020C /* MonthViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewFlowLayout.swift; path = MonthView/MonthViewFlowLayout.swift; sourceTree = "<group>"; };
 		1085E4A61F4B1EF4005C020C /* Date+Calc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Calc.swift"; path = "Extensions/Date+Calc.swift"; sourceTree = "<group>"; };
 		1085E4A81F4B2013005C020C /* DateExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionTest.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 				1054FABD1F4138BF003672DE /* Info.plist */,
 				10FDBAB91F5A8FAA00D627B1 /* CommonDefines.swift */,
 				10583E581F69668100F1E600 /* Localizable.strings */,
+				10583E5E1F69747500F1E600 /* ScheduleView.strings */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -398,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10583E5C1F69747500F1E600 /* ScheduleView.strings in Resources */,
 				10583E561F69668100F1E600 /* Localizable.strings in Resources */,
 				1054FABC1F4138BF003672DE /* LaunchScreen.storyboard in Resources */,
 				1054FAB91F4138BF003672DE /* Assets.xcassets in Resources */,
@@ -646,6 +651,15 @@
 				10583E591F6966A400F1E600 /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		10583E5E1F69747500F1E600 /* ScheduleView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10583E5D1F69747500F1E600 /* Base */,
+				10583E5F1F6974FE00F1E600 /* ja */,
+			);
+			name = ScheduleView.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

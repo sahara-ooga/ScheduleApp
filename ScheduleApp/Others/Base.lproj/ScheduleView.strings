@@ -1,0 +1,14 @@
+/* 
+  ScheduleView.strings
+  ScheduleApp
+
+  Created by yogasawara@stv on 2017/09/13.
+  Copyright © 2017年 Sunday Carpenter. All rights reserved.
+*/
+
+"ScheduleViewTitle" = "Schedule";
+"title" = "title";
+"place" = "place";
+"start_at" = "start at";
+"end_at" = "end at";
+"detail" = "detail";

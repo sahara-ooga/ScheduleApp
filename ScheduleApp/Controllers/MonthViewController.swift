@@ -107,6 +107,7 @@ extension MonthViewController{
 
 }
 
+// MARK: - ツールバーのボタンに対応するメソッド
 extension MonthViewController{
     @IBAction func tapPreviusMonth(sender:UIBarButtonItem){
         selectedDate = selectedDate.dayInPreviusMonth
