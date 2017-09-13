@@ -10,15 +10,21 @@ import UIKit
 
 class MonthViewController: UIViewController {
 
-    var monthViewDataSource:UICollectionViewDataSource!
+    var monthViewDataSource:MonthViewDataSource!
     var flowLayout:UICollectionViewDelegateFlowLayout!
     @IBOutlet weak var collectionView: UICollectionView!
+    var selectedDate:Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //初期表示には現在時刻を元にする
+        selectedDate = Date()
+        
         setDB(at: CommonDefines.dbPath)
         //insertAndIndicatorTest()  //成功 at 2017/09/12
         //deleteAllRecord(at: CommonDefines.dbPath)
+        
         setCollectionView()
     }
 
@@ -31,20 +37,18 @@ class MonthViewController: UIViewController {
 
 extension MonthViewController{
     func setCollectionView() {
-        //初期表示には現在時刻を元にする
-        let initialDate = Date()
         collectionView.register(UINib.init(nibName: String(describing: MonthViewCell.self),
                                            bundle: nil),
                                 forCellWithReuseIdentifier: String(describing: MonthViewCell.self))
         let monthViewProvider = MonthViewProvider()
-        monthViewProvider.selectedDate = initialDate
+        monthViewProvider.selectedDate = selectedDate
         monthViewDataSource = monthViewProvider
         flowLayout = MonthViewFlowLayout()
         
         collectionView.dataSource = monthViewDataSource
         collectionView.delegate = flowLayout
         
-        setTitle(for: initialDate)
+        setTitle(for: selectedDate)
     }
     
     func setTitle(for date:Date) {
@@ -103,3 +107,18 @@ extension MonthViewController{
 
 }
 
+extension MonthViewController{
+    @IBAction func tapPreviusMonth(sender:UIBarButtonItem){
+        selectedDate = selectedDate.dayInPreviusMonth
+        monthViewDataSource.selectedDate = selectedDate
+        setTitle(for: selectedDate)
+        self.collectionView.reloadData()
+    }
+    
+    @IBAction func tapNextMonth(sender:UIBarButtonItem){
+        selectedDate = selectedDate.dayInForwardMonth
+        monthViewDataSource.selectedDate = selectedDate
+        setTitle(for: selectedDate)
+        self.collectionView.reloadData()
+    }
+}

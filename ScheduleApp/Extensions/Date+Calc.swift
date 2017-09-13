@@ -157,4 +157,17 @@ extension Date{
         // 上記以外４
         return 4
     }
+    
+    var dayInPreviusMonth:Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        let comps = DateComponents(month:-1)
+        return calendar.date(byAdding: comps, to: self)
+    }
+    
+    var dayInForwardMonth:Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        let comps = DateComponents(month:1)
+        return calendar.date(byAdding: comps, to: self)
+    }
+    
 }

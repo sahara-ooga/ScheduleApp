@@ -15,5 +15,7 @@ struct CommonDefines {
                                                      .userDomainMask,
                                                      true).last!.appendingPathComponent(DBname)
     static let daysOfWeek = 7
+    
+    
 }
 

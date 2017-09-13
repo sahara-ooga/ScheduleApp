@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MonthViewProvider: NSObject {
+protocol MonthViewDataSource:UICollectionViewDataSource {
+    var selectedDate:Date! {get set}
+}
+
+class MonthViewProvider: NSObject,MonthViewDataSource {
     var selectedMonth:Int{
         get {
             return self.selectedDate.month
@@ -22,10 +26,8 @@ class MonthViewProvider: NSObject {
     }
     
     var selectedDate:Date!
-}
 
-//MARK: UICollectionViewDataSource
-extension MonthViewProvider:UICollectionViewDataSource{
+    //MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return MonthViewSettings.kNumberOfSection
     }
