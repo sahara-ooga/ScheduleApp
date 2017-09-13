@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  ScheduleApp
+
+  Created by yogasawara@stv on 2017/09/13.
+  Copyright © 2017年 Sunday Carpenter. All rights reserved.
+*/
+
+//ScheduleViewTitle
+"ScheduleViewTitle" = "予定";
+"title" = "タイトル";
+"place" = "場所";
+"start_at" = "開始時刻";
+"end_at" = "終了時刻";
+"detail" = "詳細";
