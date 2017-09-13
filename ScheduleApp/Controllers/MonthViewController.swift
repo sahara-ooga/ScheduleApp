@@ -24,6 +24,7 @@ class MonthViewController: UIViewController {
         setDB(at: CommonDefines.dbPath)
         //insertAndIndicatorTest()  //成功 at 2017/09/12
         //deleteAllRecord(at: CommonDefines.dbPath)
+        addFormView()
         
         setCollectionView()
     }
@@ -121,5 +122,13 @@ extension MonthViewController{
         monthViewDataSource.selectedDate = selectedDate
         setTitle(for: selectedDate)
         self.collectionView.reloadData()
+    }
+}
+
+extension MonthViewController{
+    func addFormView(){
+        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
+        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+        self.present(scheduleVC, animated: true, completion: nil)
     }
 }
