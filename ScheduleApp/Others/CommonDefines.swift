@@ -22,8 +22,9 @@ struct CommonDefines {
 
 struct ScheduleViewString {
     static let scheduleViewTitle = "ScheduleViewTitle"
+    
     static let title = "title"
-    static let place = "place"
+    static let location = "location"
     static let start_at = "start_at"
     static let end_at = "end_at"
     static let detail = "detail"
@@ -31,4 +32,5 @@ struct ScheduleViewString {
 
 enum StringTable:String {
     case scheduleView = "ScheduleView"
+    case localizable = "Localizable"
 }

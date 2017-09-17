@@ -8,7 +8,7 @@
 
 "ScheduleViewTitle" = "Schedule";
 "title" = "title";
-"place" = "place";
+"location" = "location";
 "start_at" = "start at";
 "end_at" = "end at";
 "detail" = "detail";
