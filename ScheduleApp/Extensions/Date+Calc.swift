@@ -18,6 +18,17 @@ public extension Date{
                                                   day: day))
     }
     
+    static func date(at year:Int = 2017, month:Int,day:Int = 1,
+                     hour:Int = 0,minite:Int = 0)->Date?{
+        let calendar = Calendar(identifier: .gregorian)
+        
+        return calendar.date(from: DateComponents(year: year,
+                                                  month: month,
+                                                  day: day,
+                                                  hour:hour,
+                                                  minute:minite))
+    }
+    
     //X時間後の日付を返す
     func after(hours:Int) -> Date {
         let calendar = Calendar(identifier: .gregorian)
@@ -69,6 +80,11 @@ public extension Date{
     var month:Int{
         let calendar = Calendar(identifier: .gregorian)
         return calendar.component(.month, from: self)
+    }
+    
+    var hour:Int{
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.hour, from: self)
     }
     
 }

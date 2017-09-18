@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102434E41F6EA7C300E910F6 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102434E31F6EA7C300E910F6 /* DayViewController.swift */; };
+		102434E61F6EA7E100E910F6 /* DayView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102434E51F6EA7E100E910F6 /* DayView.storyboard */; };
+		102434EA1F6EAD6900E910F6 /* DayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102434E81F6EAD6900E910F6 /* DayViewCell.swift */; };
+		102434EB1F6EAD6900E910F6 /* DayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 102434E91F6EAD6900E910F6 /* DayViewCell.xib */; };
+		102434ED1F6EADB400E910F6 /* DayViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102434EC1F6EADB400E910F6 /* DayViewProvider.swift */; };
+		102434EF1F6EB3C700E910F6 /* DayViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102434EE1F6EB3C700E910F6 /* DayViewSettings.swift */; };
+		102434F11F6EBA7200E910F6 /* DayViewProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102434F01F6EBA7200E910F6 /* DayViewProviderTests.swift */; };
 		1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAB11F4138BF003672DE /* AppDelegate.swift */; };
 		1054FAB41F4138BF003672DE /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054FAB31F4138BF003672DE /* MonthViewController.swift */; };
 		1054FAB71F4138BF003672DE /* MonthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1054FAB51F4138BF003672DE /* MonthView.storyboard */; };
@@ -61,6 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102434E31F6EA7C300E910F6 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		102434E51F6EA7E100E910F6 /* DayView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayView.storyboard; sourceTree = "<group>"; };
+		102434E81F6EAD6900E910F6 /* DayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewCell.swift; path = DayView/DayViewCell.swift; sourceTree = "<group>"; };
+		102434E91F6EAD6900E910F6 /* DayViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DayViewCell.xib; path = DayView/DayViewCell.xib; sourceTree = "<group>"; };
+		102434EC1F6EADB400E910F6 /* DayViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewProvider.swift; path = DayView/DayViewProvider.swift; sourceTree = "<group>"; };
+		102434EE1F6EB3C700E910F6 /* DayViewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewSettings.swift; path = DayView/DayViewSettings.swift; sourceTree = "<group>"; };
+		102434F01F6EBA7200E910F6 /* DayViewProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewProviderTests.swift; sourceTree = "<group>"; };
 		1054FAAE1F4138BF003672DE /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1054FAB11F4138BF003672DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1054FAB31F4138BF003672DE /* MonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +153,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		102434E71F6EAD2700E910F6 /* DayView */ = {
+			isa = PBXGroup;
+			children = (
+				102434E81F6EAD6900E910F6 /* DayViewCell.swift */,
+				102434E91F6EAD6900E910F6 /* DayViewCell.xib */,
+				102434EC1F6EADB400E910F6 /* DayViewProvider.swift */,
+				102434EE1F6EB3C700E910F6 /* DayViewSettings.swift */,
+			);
+			name = DayView;
+			sourceTree = "<group>";
+		};
 		1054FAA51F4138BF003672DE = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +209,7 @@
 				1085E4A81F4B2013005C020C /* DateExtensionTest.swift */,
 				10FDBABD1F5A96E800D627B1 /* TestCommonDefines.swift */,
 				10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */,
+				102434F01F6EBA7200E910F6 /* DayViewProviderTests.swift */,
 			);
 			path = ScheduleAppTests;
 			sourceTree = "<group>";
@@ -219,6 +245,8 @@
 				1054FAB31F4138BF003672DE /* MonthViewController.swift */,
 				10583E601F69779E00F1E600 /* ScheduleViewController.swift */,
 				10583E621F6977D500F1E600 /* ScheduleView.storyboard */,
+				102434E31F6EA7C300E910F6 /* DayViewController.swift */,
+				102434E51F6EA7E100E910F6 /* DayView.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +264,7 @@
 		1054FAE21F413927003672DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				102434E71F6EAD2700E910F6 /* DayView */,
 				10F64A311F45D21A0078953F /* MonthView */,
 			);
 			path = Views;
@@ -410,7 +439,9 @@
 			files = (
 				10583E5C1F69747500F1E600 /* ScheduleView.strings in Resources */,
 				10583E561F69668100F1E600 /* Localizable.strings in Resources */,
+				102434E61F6EA7E100E910F6 /* DayView.storyboard in Resources */,
 				1054FABC1F4138BF003672DE /* LaunchScreen.storyboard in Resources */,
+				102434EB1F6EAD6900E910F6 /* DayViewCell.xib in Resources */,
 				1054FAB91F4138BF003672DE /* Assets.xcassets in Resources */,
 				1054FAB71F4138BF003672DE /* MonthView.storyboard in Resources */,
 				10583E631F6977D500F1E600 /* ScheduleView.storyboard in Resources */,
@@ -577,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102434E41F6EA7C300E910F6 /* DayViewController.swift in Sources */,
 				108D2AD61F49C90900224DE9 /* Utility.swift in Sources */,
 				1054FAB41F4138BF003672DE /* MonthViewController.swift in Sources */,
 				10DC3C551F6525F400FE7828 /* IndicatorDataProvider.swift in Sources */,
@@ -584,9 +616,12 @@
 				1085E4A71F4B1EF4005C020C /* Date+Calc.swift in Sources */,
 				108D2AD41F49C03100224DE9 /* MonthViewSettings.swift in Sources */,
 				1054FAF41F413FE6003672DE /* ScheduleDao.swift in Sources */,
+				102434ED1F6EADB400E910F6 /* DayViewProvider.swift in Sources */,
 				10F64A341F45D2B80078953F /* MonthViewCell.swift in Sources */,
+				102434EF1F6EB3C700E910F6 /* DayViewSettings.swift in Sources */,
 				10FDBABA1F5A8FAA00D627B1 /* CommonDefines.swift in Sources */,
 				1054FAED1F413F0D003672DE /* FMDBHelper.swift in Sources */,
+				102434EA1F6EAD6900E910F6 /* DayViewCell.swift in Sources */,
 				10583E531F6965A500F1E600 /* String+Localized.swift in Sources */,
 				1085E4A51F4A5D75005C020C /* MonthViewFlowLayout.swift in Sources */,
 				1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */,
@@ -604,6 +639,7 @@
 				E0436A881F467A37001C8676 /* MonthViewProviderTest.swift in Sources */,
 				1054FAF61F414027003672DE /* ScheduleDaoTest.swift in Sources */,
 				10FDBABE1F5A96E800D627B1 /* TestCommonDefines.swift in Sources */,
+				102434F11F6EBA7200E910F6 /* DayViewProviderTests.swift in Sources */,
 				1085E4A91F4B2013005C020C /* DateExtensionTest.swift in Sources */,
 				10DC3C591F66259400FE7828 /* IndicatorDataProviderTest.swift in Sources */,
 				E0436A8A1F4685AB001C8676 /* MonthViewCellTest.swift in Sources */,

@@ -22,10 +22,10 @@ class MonthViewController: UIViewController {
         selectedDate = Date()
         
         setDB(at: CommonDefines.dbPath)
+        
         //insertAndIndicatorTest()  //成功 at 2017/09/12
         //deleteAllRecord(at: CommonDefines.dbPath)
-        addFormView()
-        
+        showDayView()
         setCollectionView()
     }
 
@@ -130,5 +130,12 @@ extension MonthViewController{
         let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
         let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
         self.present(scheduleVC, animated: true, completion: nil)
+    }
+    
+    func showDayView(){
+        let storyboard: UIStoryboard = UIStoryboard(name: "DayView", bundle: nil)
+        let dayVC = storyboard.instantiateInitialViewController() as! DayViewController
+        dayVC.selectedDate = self.selectedDate
+        self.navigationController?.pushViewController(dayVC, animated: true)
     }
 }

@@ -84,6 +84,11 @@ class DateExtensionTest: XCTestCase {
         expect(date?.month) == 9
     }
     
+    func testHour() {
+        let date = calendar.date(from:DateComponents(year:2017,month:9,day:1,hour:20))
+        expect(date?.hour) == 20
+    }
+    
     /// その月のカレンダーで表示する日数を返す
     func testNeededRowNumForCalendar() {
         expect(Date.date(at: 2017, month: 1, day: 10)?.neededRowNumberForCalendar()) == 5
