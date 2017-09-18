@@ -13,6 +13,8 @@ class MonthViewCell: UICollectionViewCell {
     @IBOutlet weak var indicatorLabel: UILabel!
     var indicatorDataSource:IndicatorDataSource!
     
+    var date:Date!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -43,7 +45,7 @@ class MonthViewCell: UICollectionViewCell {
                 }
                 
                 self.dayLabel.text = dateAtCell.dayString
-            
+                self.date = dateAtCell
             default:
                 self.dayLabel.text = ""
         }
@@ -115,8 +117,8 @@ extension MonthViewCell{
     }
     
     func makeLabelsGlay(){
-        dayLabel.textColor = UIColor.gray
-        indicatorLabel.textColor = UIColor.gray
+        dayLabel.textColor = SystemColor.gray
+        indicatorLabel.textColor = SystemColor.deepGray
     }
     
     //MARK:label text info for each section

@@ -105,7 +105,12 @@ class DateExtensionTest: XCTestCase {
         expect(Date.date(at: 2017, month: 12, day: 10)?.neededRowNumberForCalendar()) == 6
     }
     
-    func testTitle() {
+    func testTitleForThisMonth() {
         expect(Date.date(at: 2017, month: 9, day: 4)?.titleForThisMonth) == "2017年9月"
     }
+    
+    func testStringForDayViewTitle(){
+        expect(Date.date(at: 2017, month: 9, day: 15)?.stringForDayViewTitle) == "9月15日"
+    }
+    
 }

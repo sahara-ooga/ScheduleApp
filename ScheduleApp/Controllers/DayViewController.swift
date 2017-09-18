@@ -17,6 +17,7 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         dayViewDataSource = DayViewProvider()
         tableView.dataSource = dayViewDataSource
+        setTitle(for: selectedDate)
         
         //NOTE: 登録しないとxibファイルから読み込まれない
         tableView.register(UINib.init(nibName: String(describing: DayViewCell.self),
@@ -44,3 +45,10 @@ class DayViewController: UIViewController {
     */
 
 }
+
+extension DayViewController{
+    func setTitle(for date:Date) {
+        self.navigationItem.title = date.stringForDayViewTitle
+    }
+}
+

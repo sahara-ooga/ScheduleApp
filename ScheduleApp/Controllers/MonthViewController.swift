@@ -36,7 +36,14 @@ class MonthViewController: UIViewController {
 
 }
 
-extension MonthViewController{
+extension MonthViewController:MonthViewFlowLayoutDelegate{
+    func didSelectItem(at indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MonthViewCell
+        showDayView(for: cell.date)
+    }
+}
+
+private extension MonthViewController{
     func setCollectionView() {
         collectionView.register(UINib.init(nibName: String(describing: MonthViewCell.self),
                                            bundle: nil),
@@ -44,8 +51,10 @@ extension MonthViewController{
         let monthViewProvider = MonthViewProvider()
         monthViewProvider.selectedDate = selectedDate
         monthViewDataSource = monthViewProvider
-        flowLayout = MonthViewFlowLayout()
         
+        let monthViewFlowLayout = MonthViewFlowLayout()
+        monthViewFlowLayout.delegete = self
+        flowLayout = monthViewFlowLayout
         collectionView.dataSource = monthViewDataSource
         collectionView.delegate = flowLayout
         

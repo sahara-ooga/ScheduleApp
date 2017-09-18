@@ -10,6 +10,8 @@ import UIKit
 
 class MonthViewFlowLayout: NSObject,UICollectionViewDelegateFlowLayout {
     let cellMargin:CGFloat = 2.0
+    weak var delegete:MonthViewFlowLayoutDelegate?
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -55,4 +57,26 @@ class MonthViewFlowLayout: NSObject,UICollectionViewDelegateFlowLayout {
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return cellMargin
     }
+}
+
+extension MonthViewFlowLayout{
+    func collectionView(_ collectionView: UICollectionView,
+                        shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case MonthViewSettings.Section.yobi.rawValue:
+            return false
+        case MonthViewSettings.Section.day.rawValue:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegete?.didSelectItem(at: indexPath)
+    }
+}
+
+protocol MonthViewFlowLayoutDelegate :class{
+    func didSelectItem(at indexPath:IndexPath)
 }

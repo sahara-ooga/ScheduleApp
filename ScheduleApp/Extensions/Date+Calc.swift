@@ -97,6 +97,12 @@ extension Date{
         return formatter.string(from: self)
     }
     
+    var stringForDayViewTitle:String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M月d日"
+        return formatter.string(from: self)
+    }
+    
     /// その月の日数
     var numberOfDays:Int{
         //その月の初日をDate型で取得

@@ -241,12 +241,12 @@
 			isa = PBXGroup;
 			children = (
 				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
-				1054FAB51F4138BF003672DE /* MonthView.storyboard */,
 				1054FAB31F4138BF003672DE /* MonthViewController.swift */,
-				10583E601F69779E00F1E600 /* ScheduleViewController.swift */,
-				10583E621F6977D500F1E600 /* ScheduleView.storyboard */,
+				1054FAB51F4138BF003672DE /* MonthView.storyboard */,
 				102434E31F6EA7C300E910F6 /* DayViewController.swift */,
 				102434E51F6EA7E100E910F6 /* DayView.storyboard */,
+				10583E601F69779E00F1E600 /* ScheduleViewController.swift */,
+				10583E621F6977D500F1E600 /* ScheduleView.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,8 +264,8 @@
 		1054FAE21F413927003672DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				102434E71F6EAD2700E910F6 /* DayView */,
 				10F64A311F45D21A0078953F /* MonthView */,
+				102434E71F6EAD2700E910F6 /* DayView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
