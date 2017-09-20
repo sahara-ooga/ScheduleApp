@@ -52,3 +52,29 @@ extension DayViewController{
     }
 }
 
+extension DayViewController:UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView,
+                   willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        //画面を遷移する
+        //選ばれた日次を伝える
+        //その時間にタスクがあれば、そのタスクの情報も渡す
+        if dayViewDataSource.scheduleExists(at: indexPath.row){
+            showScheduleView(with: dayViewDataSource.schedule(at:indexPath.row))
+        }
+    }
+}
+
+extension DayViewController{
+    func showScheduleView(with schedule:ScheduleDto?){
+        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
+        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+        scheduleVC.schedule = schedule
+        self.present(scheduleVC, animated: true, completion: nil)
+    }
+}

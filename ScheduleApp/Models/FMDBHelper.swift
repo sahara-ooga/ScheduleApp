@@ -14,6 +14,7 @@ protocol BaseDao {
     var baseDao: FMDBHelper { get }
     
     func haveSchedules(at date:Date) -> Bool
+    func select(at date:Date) -> [ScheduleDto]?
 }
 
 final class FMDBHelper: NSObject {

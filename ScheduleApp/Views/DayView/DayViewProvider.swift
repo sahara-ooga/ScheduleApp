@@ -11,16 +11,39 @@ import UIKit
 protocol DayViewDataSource:UITableViewDataSource {
     var selectedDate:Date! {get set}
     var schedules:[ScheduleDto]? {get}
+    func scheduleExists(at row:Int)->Bool
+    func schedule(at row:Int)->ScheduleDto?
+    var dao:BaseDao {get}
 }
 
 class DayViewProvider: NSObject,DayViewDataSource {
-    
     //MARK: DayViewDataSource
     var selectedDate: Date!
-    
+    var dao: BaseDao
+
     var schedules: [ScheduleDto]?{
-        let dao = ScheduleDao()
         return dao.select(at: selectedDate)
+    }
+    
+    var scheduledHours:[Int]?{
+        guard let s = schedules else {
+            return nil
+        }
+        
+        let startAndEndHours = s.map{($0.startDate.hour,$0.endDate.hour)}
+        
+        //TODO:各要素のタプルから生成される区間に含まれる整数を取り出して並べる・ソートする
+        var result = [Int]()
+        
+        startAndEndHours.forEach{start,end in }
+        return nil
+    }
+    
+    /// dbのパスを指定するイニシャライザ
+    ///
+    /// - Parameter dbPath: デフォルトでは本番用のdbを生成する。テスト用にdbPathを渡すことも出来る
+    init(dbPath:String = CommonDefines.dbPath) {
+        dao = ScheduleDao(dbPath: dbPath)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,14 +67,33 @@ class DayViewProvider: NSObject,DayViewDataSource {
         
         return cell
     }
-}
-
-extension DayViewProvider{
-    var scheduledHours:[Int]?{
-        guard let s = schedules else {
-            return nil
+    
+    // MARK: 各業に対するスケジュールの有無と取り出し
+    func scheduleExists(at row: Int) -> Bool {
+        //その日のスケジュールが無いなら、falseを返す
+        if !dao.haveSchedules(at: selectedDate){
+            return false
         }
         
-        return s.map{ $0.startDate.hour }
+        //その時間にスケジュールがあるか調べる
+        var exist = false
+        schedules?.forEach{
+            if $0.startDate.hour == row{
+                exist = true
+            }
+        }
+        
+        return exist
+    }
+    
+    func schedule(at row: Int) -> ScheduleDto? {
+        var dto:ScheduleDto? = nil
+        schedules?.forEach{
+            if $0.startDate.hour == row{
+                dto = $0
+            }
+        }
+        return dto
     }
 }
+
