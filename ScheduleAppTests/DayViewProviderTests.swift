@@ -33,7 +33,8 @@ class DayViewProviderTests: XCTestCase {
         let mock = DayViewProviderMock()
         
         let result = mock.scheduledHours
-        let expects = [TestCommonDefines.startHour,TestCommonDefines.startHour-1]
+        let startHour = TestCommonDefines.startHour
+        let expects = [startHour,startHour+1,startHour+3]
         expect(result) == expects
     }
 }

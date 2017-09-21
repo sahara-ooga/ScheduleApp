@@ -18,6 +18,8 @@ protocol DayViewDataSource:UITableViewDataSource {
 
 class DayViewProvider: NSObject,DayViewDataSource {
     //MARK: DayViewDataSource
+    
+    /// スケジュールはselectedDateによって絞り込まれたものであることに注意
     var selectedDate: Date!
     var dao: BaseDao
 
@@ -26,17 +28,17 @@ class DayViewProvider: NSObject,DayViewDataSource {
     }
     
     var scheduledHours:[Int]?{
-        guard let s = schedules else {
+        guard let sch = schedules else {
             return nil
         }
         
-        let startAndEndHours = s.map{($0.startDate.hour,$0.endDate.hour)}
+        var includedHours = [Int]()
         
-        //TODO:各要素のタプルから生成される区間に含まれる整数を取り出して並べる・ソートする
-        var result = [Int]()
+        sch.forEach{
+            includedHours += Date.hourNums(from: $0.startDate, to: $0.endDate)
+        }
         
-        startAndEndHours.forEach{start,end in }
-        return nil
+        return includedHours.sorted().unique
     }
     
     /// dbのパスを指定するイニシャライザ

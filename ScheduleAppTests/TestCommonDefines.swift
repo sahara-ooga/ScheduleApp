@@ -14,13 +14,13 @@ struct TestCommonDefines {
     static let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                             .userDomainMask,
                                                             true).last!.appendingPathComponent(testDBname)
-    static let startHour = 18
+    static let startHour = 15
 
     static var twoSchedules:[ScheduleDto]{
         let startDate = Date.date(at: 2017, month: 9, day: 15,hour:startHour)!
-        let endDate = Date(timeInterval: 60*60*1, since: startDate)
-        let startDate2 = Date(timeInterval: 60*60*23, since:startDate)
-        let endDate2 = Date(timeInterval: 60*60*3, since: startDate2)
+        let endDate = Date(timeInterval: 60*60*1 + 1, since: startDate)
+        let startDate2 = Date(timeInterval: 60*60*3, since:startDate)
+        let endDate2 = Date(timeInterval: 60*60*4, since: startDate)
         
         let scheduleDic1:[String:Any] = ["title":"title1","location":"富山",
                                          "startDate":startDate,"endDate":endDate,

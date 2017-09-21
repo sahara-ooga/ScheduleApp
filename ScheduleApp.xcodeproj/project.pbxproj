@@ -36,6 +36,7 @@
 		108D2AD41F49C03100224DE9 /* MonthViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD31F49C03100224DE9 /* MonthViewSettings.swift */; };
 		108D2AD61F49C90900224DE9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD51F49C90900224DE9 /* Utility.swift */; };
 		108D2AD81F49C99900224DE9 /* UtilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D2AD71F49C99900224DE9 /* UtilityTest.swift */; };
+		109AD4221F73F2620051B56B /* Array+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109AD4211F73F2620051B56B /* Array+Unique.swift */; };
 		10DC3C551F6525F400FE7828 /* IndicatorDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C541F6525F400FE7828 /* IndicatorDataProvider.swift */; };
 		10DC3C591F66259400FE7828 /* IndicatorDataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */; };
 		10F64A341F45D2B80078953F /* MonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F64A321F45D2B80078953F /* MonthViewCell.swift */; };
@@ -105,6 +106,7 @@
 		108D2AD31F49C03100224DE9 /* MonthViewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewSettings.swift; path = MonthView/MonthViewSettings.swift; sourceTree = "<group>"; };
 		108D2AD51F49C90900224DE9 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		108D2AD71F49C99900224DE9 /* UtilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTest.swift; sourceTree = "<group>"; };
+		109AD4211F73F2620051B56B /* Array+Unique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Unique.swift"; path = "Extensions/Array+Unique.swift"; sourceTree = "<group>"; };
 		10DC3C541F6525F400FE7828 /* IndicatorDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndicatorDataProvider.swift; path = MonthView/IndicatorDataProvider.swift; sourceTree = "<group>"; };
 		10DC3C581F66259400FE7828 /* IndicatorDataProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorDataProviderTest.swift; sourceTree = "<group>"; };
 		10F64A321F45D2B80078953F /* MonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewCell.swift; path = MonthView/MonthViewCell.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				1054FAEF1F413F7F003672DE /* String+Path.swift */,
 				1085E4A61F4B1EF4005C020C /* Date+Calc.swift */,
 				10583E521F6965A500F1E600 /* String+Localized.swift */,
+				109AD4211F73F2620051B56B /* Array+Unique.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				1054FAED1F413F0D003672DE /* FMDBHelper.swift in Sources */,
 				102434EA1F6EAD6900E910F6 /* DayViewCell.swift in Sources */,
 				10583E531F6965A500F1E600 /* String+Localized.swift in Sources */,
+				109AD4221F73F2620051B56B /* Array+Unique.swift in Sources */,
 				1085E4A51F4A5D75005C020C /* MonthViewFlowLayout.swift in Sources */,
 				1054FAB21F4138BF003672DE /* AppDelegate.swift in Sources */,
 				1054FAF21F413FBA003672DE /* ScheduleDto.swift in Sources */,
