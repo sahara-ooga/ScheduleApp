@@ -113,7 +113,7 @@ class DateExtensionTest: XCTestCase {
         expect(Date.date(at: 2017, month: 9, day: 15)?.stringForDayViewTitle) == "9月15日"
     }
     
-    func testHours(){
+    func testHourNums(){
         // システムのカレンダーを取得
         let cal = Calendar.current
         
@@ -128,6 +128,6 @@ class DateExtensionTest: XCTestCase {
         let add = DateComponents(calendar: cal, hour: 3, minute: 30)
         let date2 = cal.date(byAdding: add, to: date1)!
         
-        expect(Date.hours(from: date1, to: date2)) == [0,1,2,3]
+        expect(Date.hourNums(from: date1, to: date2)) == [0,1,2,3]
     }
 }

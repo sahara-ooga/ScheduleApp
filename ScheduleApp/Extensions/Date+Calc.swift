@@ -198,7 +198,7 @@ extension Date{
     ///   - startDate: 開始時刻
     ///   - endDate: 終了時刻
     /// - Returns: 開始時刻と終了時刻の区間中の時間の配列
-    static func hours(from startDate:Date,to endDate:Date)->[Int]{
+    static func hourNums(from startDate:Date,to endDate:Date)->[Int]{
         var hours = [Int]()
         
         //正時の時は含まないようにしたいので、不等号。
