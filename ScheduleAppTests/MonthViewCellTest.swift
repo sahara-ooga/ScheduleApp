@@ -81,7 +81,7 @@ class MonthViewCellTest: XCTestCase {
                  selectedMonth: 8,
                  selectedYear: 2017)
         XCTAssertEqual(cell.dayLabel.text, "31")
-        expect(self.cell.dayLabel.textColor).to(equal(UIColor.gray))
+        expect(self.cell.dayLabel.textColor) == SystemColor.gray
     }
     
     /// 8月1日は黒
