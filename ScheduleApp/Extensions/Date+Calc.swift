@@ -192,4 +192,25 @@ extension Date{
         return calendar.date(byAdding: comps, to: self)
     }
     
+    /// 2つの時刻の間にある時を返す
+    ///
+    /// - Parameters:
+    ///   - startDate: 開始時刻
+    ///   - endDate: 終了時刻
+    /// - Returns: 開始時刻と終了時刻の区間中の時間の配列
+    static func hours(from startDate:Date,to endDate:Date)->[Int]{
+        var hours = [Int]()
+        
+        //正時の時は含まないようにしたいので、不等号。
+        let range = startDate..<endDate
+        
+        hours.append(startDate.hour)
+        var date = startDate.after(hours: 1)
+        while range.contains(date) {
+            hours.append(date.hour)
+            date = date.after(hours: 1)
+        }
+        
+        return hours
+    }
 }

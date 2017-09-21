@@ -113,4 +113,21 @@ class DateExtensionTest: XCTestCase {
         expect(Date.date(at: 2017, month: 9, day: 15)?.stringForDayViewTitle) == "9月15日"
     }
     
+    func testHours(){
+        // システムのカレンダーを取得
+        let cal = Calendar.current
+        
+        // 指定した日付のDateComponentsを生成
+        var dateComps = DateComponents()
+        dateComps.year = 2017
+        dateComps.month = 9
+        dateComps.day = 16
+        
+        // Dateオブジェクトを生成
+        let date1 = cal.date(from: dateComps)!
+        let add = DateComponents(calendar: cal, hour: 3, minute: 30)
+        let date2 = cal.date(byAdding: add, to: date1)!
+        
+        expect(Date.hours(from: date1, to: date2)) == [0,1,2,3]
+    }
 }
