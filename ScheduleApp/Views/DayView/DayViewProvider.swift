@@ -70,7 +70,7 @@ class DayViewProvider: NSObject,DayViewDataSource {
         return cell
     }
     
-    // MARK: 各業に対するスケジュールの有無と取り出し
+    // MARK: 各行に対するスケジュールの有無と取り出し
     func scheduleExists(at row: Int) -> Bool {
         //その日のスケジュールが無いなら、falseを返す
         if !dao.haveSchedules(at: selectedDate){
