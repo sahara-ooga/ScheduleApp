@@ -96,6 +96,28 @@ struct Utility {
         //表示
         vc.present(alertController, animated: true, completion: nil)
     }
+    
+    /// デバッグ時に表示される
+    ///
+    /// - Parameters:
+    ///   - object: <#object description#>
+    ///   - function: <#function description#>
+    ///   - file: <#file description#>
+    ///   - line: <#line description#>
+    ///　https://qiita.com/taketomato/items/d5630fe5df45f4093720#10-debug-logs
+    func dprint(object: Any?,
+                function: StaticString = #function,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        #if DEBUG
+            let format = DateFormatter()
+            format.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+            let encodedFilePath = NSString(string: String(describing: file)).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics)
+            let fileName = NSURL(string: String(describing: encodedFilePath))?.lastPathComponent
+            Swift.print("\(format.string(from: Date())) \(String(describing: fileName)) [\(line)] \(function): \(object ?? "nil")",
+                terminator: "\n")
+        #endif
+    }
 }
 
 /**
