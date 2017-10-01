@@ -57,11 +57,9 @@ struct TestUtility {
     
     ///時刻・期間を指定してスケジュールを保存する
     static func insertSchedules(at dates:[Date],duration:Int){
-        var schedules = [ScheduleDto]()
-        
-        //時刻・期間を指定して保存する
-        dates.enumerated().forEach{
-            let endDate = Date(timeInterval: TimeInterval(60*60*duration), since: $0.element)
+        let schedules:[ScheduleDto] = dates.enumerated().map{
+            let endDate = Date(timeInterval: TimeInterval(60*60*duration),
+                               since: $0.element)
             
             let schedule = ScheduleDto()
             schedule.title = "title" + String($0.offset)
@@ -70,9 +68,10 @@ struct TestUtility {
             schedule.endDate = endDate
             schedule.detail = String($0.offset)
             schedule.deleteFlag = false
-            schedules.append(schedule)
+            
+            return schedule
         }
-        
+
         //作ったスケジュールを挿入
         _ = dao.insert(scheduleDtos: schedules)
     }

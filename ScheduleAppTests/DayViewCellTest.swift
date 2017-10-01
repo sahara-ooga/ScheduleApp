@@ -17,8 +17,6 @@ class DayViewCellTest: XCTestCase {
         super.setUp()
         TestUtility.clean()
         TestUtility.createTable()
-        
-        //setCell()
     }
     
     override func tearDown() {
@@ -54,7 +52,6 @@ class DayViewCellTest: XCTestCase {
 }
 
 extension DayViewCellTest{
-    
     func insertRecord() {
         TestUtility.insertSchedules(at: [Date()], duration: 3)
     }
