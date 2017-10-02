@@ -20,7 +20,7 @@ class MonthViewFlowLayout: NSObject,UICollectionViewDelegateFlowLayout {
             let daysParWeek:CGFloat = CGFloat(MonthViewSettings.kNumberOfItemInYobiSection)
             let numberOfMargin:CGFloat =  CGFloat(daysParWeek + 1)
             let width:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin) / daysParWeek
-            let height:CGFloat = width * 0.3
+            let height:CGFloat = width * 0.5
             return CGSize(width: width, height: height)
             
         case MonthViewSettings.Section.day.rawValue:
