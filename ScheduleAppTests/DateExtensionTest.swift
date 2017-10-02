@@ -130,4 +130,18 @@ class DateExtensionTest: XCTestCase {
         
         expect(Date.hourNums(from: date1, to: date2)) == [0,1,2,3]
     }
+    
+    func testStringForScheduleViewStartDateAt1509(){
+        let date = Date.date(at: 2017, month: 9, day: 20, hour: 15, minite: 9)
+        let result = date?.stringForScheduleViewStartDate
+        let expectation = "15:09"
+        expect(result) == expectation
+    }
+    
+    func testStringForScheduleViewStartDateAt0515(){
+        let date = Date.date(at: 2017, month: 9, day: 20, hour: 5, minite: 15)
+        let result = date?.stringForScheduleViewStartDate
+        let expectation = "05:15"
+        expect(result) == expectation
+    }
 }
