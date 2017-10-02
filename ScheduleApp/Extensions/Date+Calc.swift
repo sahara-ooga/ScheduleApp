@@ -36,13 +36,26 @@ public extension Date{
         return calendar.date(byAdding: add, to: self)!
     }
     
+    func add(year:Int=0,
+             month:Int=0,day:Int=0,
+             hour:Int=0,minute:Int=0,
+             second:Int=0)->Date{
+        let calendar = Calendar(identifier: .gregorian)
+        let add = DateComponents(calendar: calendar,
+                                 year: year, month: month,
+                                 day: day,
+                                 hour: hour, minute: minute,
+                                 second: second)
+        return calendar.date(byAdding:add,to:self)!
+    }
+    
     /// システムのロケールに於ける、AM0時00分のDateを返す
     ///
     /// - Parameter date: 取得したい日時
     /// - Returns: dateのシステムロケールにおける始まりの日時
     func startPoint()->Date{
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.current
+        //calendar.locale = Locale.current
         
         return calendar.startOfDay(for: self)
     }
@@ -53,7 +66,7 @@ public extension Date{
     /// - Returns: dateのシステムロケールにおける終わりの瞬間
     func endPoint()->Date?{
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.current
+        //calendar.locale = Locale.current
         
         let startPoint = calendar.startOfDay(for: self)
         let tomorrow = calendar.date(byAdding: .day,
@@ -68,7 +81,7 @@ public extension Date{
     var dayString:String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
-        formatter.locale = Locale.current
+        //formatter.locale = Locale.current
         return formatter.string(from: self)
     }
     
@@ -80,6 +93,11 @@ public extension Date{
     var month:Int{
         let calendar = Calendar(identifier: .gregorian)
         return calendar.component(.month, from: self)
+    }
+    
+    var day:Int{
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.day, from: self)
     }
     
     var hour:Int{
@@ -100,6 +118,13 @@ extension Date{
     var stringForDayViewTitle:String{
         let formatter = DateFormatter()
         formatter.dateFormat = "M月d日"
+        return formatter.string(from: self)
+    }
+    
+    /// "15:09"
+    var stringForScheduleViewStartDate:String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
         return formatter.string(from: self)
     }
     
@@ -136,7 +161,7 @@ extension Date{
     /// - Returns: 日曜日は１。土曜日は７
     var weekDay:Int{
         var calender = Calendar(identifier: .gregorian)
-        calender.locale = Locale.current
+        //calender.locale = Locale.current
         return calender.component(.weekday, from: self)
     }
     
