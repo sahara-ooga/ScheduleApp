@@ -77,7 +77,7 @@ class MonthViewCell: UICollectionViewCell {
             
             //当該月に含まれていなければ、文字色を灰色にする
             var calendar = Calendar(identifier: .gregorian)
-            calendar.locale = Locale.current
+            //calendar.locale = Locale.current
             if calendar.component(.month, from: dateAtCell) != selectedMonth{
                 makeLabelsGlay()
             }
