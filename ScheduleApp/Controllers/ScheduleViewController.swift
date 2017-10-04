@@ -11,13 +11,10 @@ import Eureka
 
 class ScheduleViewController: FormViewController {
     var schedule:ScheduleDto?
+    var selectedDate:Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if schedule == nil {
-            schedule = ScheduleDto()
-        }
         
         form +++ Section()
             //タイトル入力欄
@@ -28,6 +25,10 @@ class ScheduleViewController: FormViewController {
                 $0.placeholder = NSLocalizedString(ScheduleViewString.title,
                                                    tableName: StringTable.scheduleView.rawValue,
                                                    comment: "")
+                if let title = schedule?.title{
+                    $0.value = title
+                }
+                
                 }.onChange{[weak self] row in
                     self?.schedule?.title = row.value!
             }
@@ -40,6 +41,11 @@ class ScheduleViewController: FormViewController {
                 $0.placeholder = NSLocalizedString(ScheduleViewString.location,
                                                    tableName: StringTable.scheduleView.rawValue,
                                                    comment: "")
+                
+                if let location = schedule?.location{
+                    $0.value = location
+                }
+                
                 }.onChange{[weak self] row in
                     self?.schedule?.location = row.value!
             }
@@ -49,7 +55,16 @@ class ScheduleViewController: FormViewController {
                 $0.title = NSLocalizedString(ScheduleViewString.start_at,
                                              tableName: StringTable.scheduleView.rawValue,
                                              comment: "")
-                $0.value = String(describing: schedule?.startDate ?? Date())
+                
+                let f = DateFormatter()
+                f.timeStyle = .short
+                //f.dateStyle = .full
+                
+                if let date = schedule?.startDate{
+                    $0.value = f.string(from: date)
+                }else if let date = selectedDate{
+                    $0.value = f.string(from: date)
+                }
             }
             
             //終了時刻の表示
@@ -58,9 +73,7 @@ class ScheduleViewController: FormViewController {
                                              tableName: StringTable.scheduleView.rawValue,
                                              comment: "")
                 
-                if let sc = self.schedule {
-                    $0.value = sc.endDate
-                }
+                $0.value = schedule?.endDate
                 
                 }.onChange{row in
                     self.schedule?.endDate = row.value!
@@ -73,6 +86,10 @@ class ScheduleViewController: FormViewController {
                 $0.placeholder = NSLocalizedString(ScheduleViewString.detail,
                                                    tableName: StringTable.scheduleView.rawValue,
                                                    comment: "")
+                if let detail = schedule?.detail{
+                    $0.value = detail
+                }
+                
                 $0.textAreaHeight = .dynamic(initialTextViewHeight: 50)
                 }.onChange{row in
                     self.schedule?.detail = row.value!

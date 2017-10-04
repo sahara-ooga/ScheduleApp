@@ -66,11 +66,6 @@ extension DayViewController:UITableViewDelegate{
         //画面を遷移する
         //選ばれた日次を伝える
         //その時間にタスクがあれば、そのタスクの情報も渡す
-//        if dayViewDataSource.scheduleExists(at: indexPath.row){
-//            showScheduleView(with: dayViewDataSource.schedule(at:indexPath.row))
-//        }else{
-//            showScheduleView(with: nil)
-//        }
         showScheduleView(at: indexPath)
     }
 }
