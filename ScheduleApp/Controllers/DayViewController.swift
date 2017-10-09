@@ -72,24 +72,39 @@ extension DayViewController:UITableViewDelegate{
 
 extension DayViewController{
     func showScheduleView(at indexPath:IndexPath){
-        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
-        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+//        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
+//        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+        let scheduleVC = ScheduleViewController.create()
         
-        let year = selectedDate.year
-        let month = selectedDate.month
-        let day = selectedDate.day
-        let hour = indexPath.row
+        if let schedule = dayViewDataSource.schedule(at:indexPath.row){
+            scheduleVC.state = .edit(schedule)
+            
+        }else{
+            let year = selectedDate.year
+            let month = selectedDate.month
+            let day = selectedDate.day
+            let hour = indexPath.row
+            let date = Date.date(at: year, month: month, day: day, hour: hour, minite: 0)
+            
+            scheduleVC.state = .new(date!)
+        }
         
-        let date = Date.date(at: year, month: month, day: day, hour: hour, minite: 0)
-        scheduleVC.selectedDate = date
-        scheduleVC.schedule = dayViewDataSource.schedule(at:indexPath.row)
+        //scheduleVC.state =
+//        let year = selectedDate.year
+//        let month = selectedDate.month
+//        let day = selectedDate.day
+//        let hour = indexPath.row
+//        
+//        let date = Date.date(at: year, month: month, day: day, hour: hour, minite: 0)
+//        scheduleVC.selectedDate = date
+//        scheduleVC.schedule = dayViewDataSource.schedule(at:indexPath.row)
         self.navigationController?.pushViewController(scheduleVC, animated: true)
     }
     
-    func showScheduleView(with schedule:ScheduleDto?){
-        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
-        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
-        scheduleVC.schedule = schedule
-        self.navigationController?.pushViewController(scheduleVC, animated: true)
-    }
+//    func showScheduleView(with schedule:ScheduleDto?){
+//        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
+//        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+//        scheduleVC.schedule = schedule
+//        self.navigationController?.pushViewController(scheduleVC, animated: true)
+//    }
 }
