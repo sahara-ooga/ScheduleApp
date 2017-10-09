@@ -131,10 +131,34 @@ class ScheduleViewController: FormViewController {
                 $0.textAreaHeight = .dynamic(initialTextViewHeight: 50)
                 }.onChange{row in
                     self.schedule?.detail = row.value!
-        }
+            }
         
+            //保存・キャンセル
+            +++ Section("save or cancel")
+                <<< ButtonRow("save") { (row: ButtonRow) -> Void in
+                        row.title = "save"//TODO:文言修正・ローカライズ
+                    }
+                    .onCellSelection { [weak self] (cell, row) in
+                        self?.saveInfo()
+                        self?.returnToDayView()
+            }
+         
+                <<< ButtonRow("cancel") { (row: ButtonRow) -> Void in
+                        row.title = "cancel"//TODO:ローカライズ
+                    }
+                    .onCellSelection { [weak self] (cell, row) in
+                        self?.returnToDayView()
+            }
     }
 
+    func saveInfo() {
+        //TODO:情報の保存処理
+    }
+    
+    func returnToDayView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
