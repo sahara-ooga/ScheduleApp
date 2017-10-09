@@ -242,7 +242,6 @@
 		1054FAE01F4138FC003672DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
 				1054FAB31F4138BF003672DE /* MonthViewController.swift */,
 				1054FAB51F4138BF003672DE /* MonthViewController.storyboard */,
 				102434E31F6EA7C300E910F6 /* DayViewController.swift */,
@@ -266,6 +265,7 @@
 		1054FAE21F413927003672DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1054FABA1F4138BF003672DE /* LaunchScreen.storyboard */,
 				10F64A311F45D21A0078953F /* MonthView */,
 				102434E71F6EAD2700E910F6 /* DayView */,
 			);
@@ -725,7 +725,7 @@
 				1054FABB1F4138BF003672DE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = .;
+			path = ../Controllers/.;
 			sourceTree = "<group>";
 		};
 		10583E581F69668100F1E600 /* Localizable.strings */ = {
