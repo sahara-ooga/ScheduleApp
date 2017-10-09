@@ -54,9 +54,7 @@ public extension Date{
     /// - Parameter date: 取得したい日時
     /// - Returns: dateのシステムロケールにおける始まりの日時
     func startPoint()->Date{
-        var calendar = Calendar(identifier: .gregorian)
-        //calendar.locale = Locale.current
-        
+        let calendar = Calendar(identifier: .gregorian)
         return calendar.startOfDay(for: self)
     }
     
@@ -65,8 +63,7 @@ public extension Date{
     /// - Parameter date: 取得したい日時
     /// - Returns: dateのシステムロケールにおける終わりの瞬間
     func endPoint()->Date?{
-        var calendar = Calendar(identifier: .gregorian)
-        //calendar.locale = Locale.current
+        let calendar = Calendar(identifier: .gregorian)
         
         let startPoint = calendar.startOfDay(for: self)
         let tomorrow = calendar.date(byAdding: .day,
@@ -160,8 +157,7 @@ extension Date{
     ///
     /// - Returns: 日曜日は１。土曜日は７
     var weekDay:Int{
-        var calender = Calendar(identifier: .gregorian)
-        //calender.locale = Locale.current
+        let calender = Calendar(identifier: .gregorian)
         return calender.component(.weekday, from: self)
     }
     
