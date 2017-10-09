@@ -9,9 +9,47 @@
 import UIKit
 import Eureka
 
+enum ScheduleVCState{
+    case new(Date)
+    case edit(ScheduleDto)
+    
+    var startDate:Date?{
+        switch self {
+        case .new(let startDate):
+            return startDate
+        default:
+            return nil
+        }
+    }
+    
+    var schedule:ScheduleDto?{
+        switch self {
+        case .edit(let schedule):
+            return schedule
+        default:
+            return nil
+        }
+    }
+    
+    init(at startDate:Date) {
+        self = .new(startDate)
+    }
+    
+    init(with schedule:ScheduleDto) {
+        self = .edit(schedule)
+    }
+}
+
 class ScheduleViewController: FormViewController {
-    var schedule:ScheduleDto?
-    var selectedDate:Date?
+    private var schedule:ScheduleDto?{
+        return self.state.schedule
+    }
+    
+    private var selectedDate:Date?{
+        return self.state.startDate
+    }
+    
+    var state:ScheduleVCState!
     
     override func viewDidLoad() {
         super.viewDidLoad()
