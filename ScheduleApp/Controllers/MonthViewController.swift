@@ -138,14 +138,12 @@ extension MonthViewController{
 
 extension MonthViewController{
     func addFormView(){
-        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
-        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
+        let scheduleVC = ScheduleViewController.create()
         self.present(scheduleVC, animated: true, completion: nil)
     }
     
     func showDayView(for date:Date){
-        let storyboard: UIStoryboard = UIStoryboard(name: "DayView", bundle: nil)
-        let dayVC = storyboard.instantiateInitialViewController() as! DayViewController
+        let dayVC = DayViewController.create()
         dayVC.selectedDate = date
         self.navigationController?.pushViewController(dayVC, animated: true)
     }
