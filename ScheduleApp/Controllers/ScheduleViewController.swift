@@ -153,8 +153,11 @@ class ScheduleViewController: FormViewController {
 
     func saveInfo() {
         //TODO:情報の保存処理
+        //新規ならinsert
+        //既存の編集ならupdate
     }
     
+    /// 日次画面への遷移
     func returnToDayView() {
         self.navigationController?.popViewController(animated: true)
     }
