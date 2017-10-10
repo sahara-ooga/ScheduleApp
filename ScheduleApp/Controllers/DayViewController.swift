@@ -72,8 +72,6 @@ extension DayViewController:UITableViewDelegate{
 
 extension DayViewController{
     func showScheduleView(at indexPath:IndexPath){
-//        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
-//        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
         let scheduleVC = ScheduleViewController.create()
         
         if let schedule = dayViewDataSource.schedule(at:indexPath.row){
@@ -89,22 +87,6 @@ extension DayViewController{
             scheduleVC.state = .new(date!)
         }
         
-        //scheduleVC.state =
-//        let year = selectedDate.year
-//        let month = selectedDate.month
-//        let day = selectedDate.day
-//        let hour = indexPath.row
-//        
-//        let date = Date.date(at: year, month: month, day: day, hour: hour, minite: 0)
-//        scheduleVC.selectedDate = date
-//        scheduleVC.schedule = dayViewDataSource.schedule(at:indexPath.row)
         self.navigationController?.pushViewController(scheduleVC, animated: true)
     }
-    
-//    func showScheduleView(with schedule:ScheduleDto?){
-//        let storyboard: UIStoryboard = UIStoryboard(name: "ScheduleView", bundle: nil)
-//        let scheduleVC = storyboard.instantiateInitialViewController() as! ScheduleViewController
-//        scheduleVC.schedule = schedule
-//        self.navigationController?.pushViewController(scheduleVC, animated: true)
-//    }
 }
