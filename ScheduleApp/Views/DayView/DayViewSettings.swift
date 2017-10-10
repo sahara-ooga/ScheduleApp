@@ -10,7 +10,7 @@ import UIKit
 
 struct DayViewSettings{
     static let numberOfSection = 1
-    static let numberOfRow = 24
+    static let numberOfRow = 48
     
     static let scheduledColor = SystemColor.blue
     static let unScheduledColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
