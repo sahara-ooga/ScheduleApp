@@ -53,7 +53,11 @@ class ScheduleViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNavigationBar()
+        setComponents()
+    }
+    
+    func setComponents(){
         form +++ Section()
             //タイトル入力欄
             <<< TextRow("titleTextField"){
@@ -150,32 +154,50 @@ class ScheduleViewController: FormViewController {
                         self?.returnToDayView()
             }
     }
+    
+    func setNavigationBar() {
+        self.navigationItem.title = "予定"
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save,
+                                         target: self,
+                                         action: #selector(tapSaveButton))
+        self.navigationItem.setRightBarButton(saveButton, animated: true)
+    }
+    
+    
+    //MARK: Save Button
+    
+    func tapSaveButton(sender:Any) {
+        //save info
+        saveInfo()
+        //transition
+        returnToDayView()
+    }
 
     func saveInfo() {
-        //TODO:情報の保存処理
-        //新規ならinsert
-        //既存の編集ならupdate
+        let dao = ScheduleDao()
+        guard let st = state else {
+            return
+        }
+        
+        guard let schedule = st.schedule else { return }
+        
+        switch st {
+        case .new( _):
+            _ = dao.insert(schedule)
+            
+        case .edit(let schedule):
+            _ = dao.update(id: schedule.id,
+                           title: schedule.title,
+                           location: schedule.location,
+                           startDate: schedule.startDate,
+                           endDate: schedule.endDate,
+                           detail: schedule.detail,
+                           deleteFlag: schedule.deleteFlag)
+        }
     }
     
     /// 日次画面への遷移
     func returnToDayView() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
